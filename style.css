@@ -1,0 +1,48 @@
+body {
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
+}
+
+.header {
+    display: flex;
+    background-color: #AF92C8;
+    grid-column: 1 / 6;
+    /* padding: 15px; */
+    
+}
+
+.todo-body {
+    display: grid;
+    grid-column: 1 / 6;
+    background-color: #FBF8EF;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+.header >i {
+    display: inline;
+    font-size: 150px;
+    padding-top: 135px;
+    padding-left: 285px;
+
+}
+
+#title {
+    font-size: 10em;
+    padding-left: 30px;
+}
+
+.todo-body > i {
+    font-size: 150px;
+    grid-column: 3/ span 4;
+    grid-row: 4/ span 5;
+    margin-left: 120px;
+    margin-top: 150px;
+}
+
+#status {
+    text-align: center;
+    grid-column: 1/ span 4;
+    font-size: 6em;
+}

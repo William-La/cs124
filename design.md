@@ -1,7 +1,10 @@
 # CS 124 Lab 1
 Devika Mehr and William La
+
 CS124 Section 1
+
 index: 
+
 Sept. 23 2021
 
 Design Decisions and Rationale
@@ -17,6 +20,8 @@ Alternative Designs Considered
 For the dropdown menu functionality where we can choose to edit or delete an individual item, we initially had two designs. 
 The first design had the dropdown icon rotate and shift to the left while the two menu options appear next to it after the icon was clicked.
 The second design features a menu that drops down after the icon was clicked featuring the two menu options. We ultimately decided to go with this second design as it was simpler and more accurately displayed the functionality expected from a dropdown icon.
+
+#### Dropdown alternative design
 ![Dropdown Designs](./img/dropdown.jpg)
 
 User Testing

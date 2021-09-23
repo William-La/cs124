@@ -3,7 +3,7 @@ Devika Mehr and William La
 
 CS124 Section 1
 
-index: 
+[Link to index page](https://github.com/devikamehr/cs124/blob/lab1/index.html)
 
 Sept. 23 2021
 
@@ -30,6 +30,17 @@ For user testing, we conducted two tests with two different users. One user was 
 
 Final Design
 ------------
+## Task 1
+
+## Task 2
+
+## Task 3
+
+## Task 4
+
+## Task 5
+
+## Task 6
 
 Challenges
 ----------

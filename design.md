@@ -32,47 +32,84 @@ Final Design
 ------------
 ### Task 1
 Start
+
 ![Task 1 Start](./img/task1startbefore.jpg)
+
 Middle
+
 ![Task 1 Middle](./img/task1mid.jpg)
+
 End
+
 ![Task 1 End](./img/task1end.jpg)
+
 ### Task 2
 Start
+
 ![Task 2 Start](./img/task1end.jpg)
+
 Middle
+
 ![Task 2 Middle](./img/task1mid.jpg)
+
 End
+
 ![Task 2 End](./img/task2end.jpg)
+
 ### Task 3
 Start
+
 ![Task 3 Start](./img/task3start.jpg)
+
 End
+
 ![Task 3 End](./img/task3end.jpg)
+
 ### Task 4
 Start
+
 ![Task 4 Start](./img/task4start.jpg)
+
 Middle 1
+
 ![Task 4 Middle 1](./img/task4mid.jpg)
+
 Middle 2
+
 ![Task 4 Middle 2](./img/task4mid2.jpg)
+
 End
+
 ![Task 4 End](./img/task4end.jpg)
+
 ### Task 5
 Start
+
 ![Task 5 Start](./img/task5start.jpg)
+
 Middle
+
 ![Task 5 Middle](./img/task5mid.jpg)
+
 End
+
 ![Task 5 End](./img/task5end.jpg)
-### Task 
+
+### Task 6
 Start
+
 ![Task 6 Start](./img/task6start.jpg)
+
 Middle 1
+
 ![Task 6 Middle 1](./img/task6mid.jpg)
+
 Middle 2
+
 ![Task 6 Middle 2](./img/task6mid2.jpg)
+
 End
+
 ![Task 6 End](./img/task6end.jpg)
 
 Challenges

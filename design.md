@@ -15,6 +15,9 @@ We also ensured we had the same color scheme for every task and just lightened t
 Also, for our Filter feature, we wanted to ensure the user knew which “screen” they were on, so we decided to bolden the text to visually alert the user they were looking at either the “completed” or “uncompleted” screen.
 Finally, we ensured we had down arrows for any dropdown menu and a tappable filter button as well. We wanted a few interactive features to minimize how complicated the application could get, but also provide more functionality. 
 
+#### Concept Designs for First Few Tasks
+![Concept Designs](./img/brainstorm.jpg)
+
 Alternative Designs Considered
 ------------------------------
 For the dropdown menu functionality where we can choose to edit or delete an individual item, we initially had two designs. 
@@ -26,7 +29,7 @@ The second design features a menu that drops down after the icon was clicked fea
 
 We also considered adding a "select all" box similar to the one commonly used in mail applications like Gmail. 
 
-#### Select All Box Example
+#### Select All Box Gmail Example
 ![Select All Box](./img/gmailselect.jpg)
 
 We initially thought that this select all feature could help users select a screen of tasks (i.e. all completed tasks) and easily delete them. However, we then thought about the 80-20 rule and determined that this feature may detract from the simplicity of our app. The conclusion we reached was that users would likely only delete all of the tasks on their screen when they were looking at all of the completed tasks. Otherwise, users would likely delete individual tasks using the dropdown menu for each task. So, we decided against adding this select all box and instead modified our button in the lower right of the screen to be a delete all button when users show only completed tasks.

@@ -30,7 +30,7 @@ For user testing, we conducted two tests with two different users. One user was 
 
 Final Design
 ------------
-### Task 1
+### Task 1 - In an empty list, create an item named "Buy new John Grisham book"
 Start
 
 ![Task 1 Start](./img/task1startbefore.jpg)
@@ -43,7 +43,7 @@ End
 
 ![Task 1 End](./img/task1end.jpg)
 
-### Task 2
+### Task 2 - In a non-empty list, create an item named "Eat Lunch"
 Start
 
 ![Task 2 Start](./img/task1end.jpg)
@@ -56,7 +56,7 @@ End
 
 ![Task 2 End](./img/task2end.jpg)
 
-### Task 3
+### Task 3 - Mark the item named "Call Mom" completed
 Start
 
 ![Task 3 Start](./img/task3start.jpg)
@@ -65,7 +65,7 @@ End
 
 ![Task 3 End](./img/task3end.jpg)
 
-### Task 4
+### Task 4 - Rename the item "Text John" to "Text John about bank statements"
 Start
 
 ![Task 4 Start](./img/task4start.jpg)
@@ -82,7 +82,7 @@ End
 
 ![Task 4 End](./img/task4end.jpg)
 
-### Task 5
+### Task 5 - Show only uncompleted items
 Start
 
 ![Task 5 Start](./img/task5start.jpg)
@@ -95,7 +95,7 @@ End
 
 ![Task 5 End](./img/task5end.jpg)
 
-### Task 6
+### Task 6 - Delete all completed items
 Start
 
 ![Task 6 Start](./img/task6start.jpg)

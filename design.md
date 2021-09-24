@@ -24,6 +24,17 @@ The second design features a menu that drops down after the icon was clicked fea
 #### Dropdown alternative design
 ![Dropdown Designs](./img/dropdown.jpg)
 
+We also considered adding a "select all" box similar to the one commonly used in mail applications like Gmail. 
+
+#### Select All Box Example
+![Select All Box](./img/gmailselect.jpg)
+
+We initially thought that this select all feature could help users select a screen of tasks (i.e. all completed tasks) and easily delete them. However, we then thought about the 80-20 rule and determined that this feature may detract from the simplicity of our app. The conclusion we reached was that users would likely only delete all of the tasks on their screen when they were looking at all of the completed tasks. Otherwise, users would likely delete individual tasks using the dropdown menu for each task. So, we decided against adding this select all box and instead modified our button in the lower right of the screen to be a delete all button when users show only completed tasks.
+
+#### Select All Box Concept Design
+![Select All Box](./img/selectall.jpg)
+
+
 User Testing
 ------------
 For user testing, we conducted two tests with two different users. One user was an avid to-do list user while another user didn’t use them quite often. While they went through the screens, they enjoyed the colors and were able to speak out about their actions easily. One point the avid to-do list user mentioned was our broken heart emoji on the “empty tasks” screen sparked a bit of anxiety that she had no tasks to complete and it confused her on why it was sad. While going through the dropdown boxes, one user was confused at first with the “Edit” and “Delete” options but once they saw the next screen they realized that you could edit and delete the tasks. Overall, both of them enjoyed the colors and felt it was simple enough to use, and were eager to see how we’d improve it. 

@@ -60,11 +60,11 @@ Start
 
 ![Task 1 Start](./img/task1startafter.jpg)
 
-Middle
+Middle - After the plus button is pressed
 
 ![Task 1 Middle](./img/task1mid.jpg)
 
-End
+End - After the submit button is pressed
 
 ![Task 1 End](./img/task1end.jpg)
 
@@ -75,11 +75,11 @@ Start
 
 ![Task 2 Start](./img/task1end.jpg)
 
-Middle
+Middle - After the plus button is pressed
 
 ![Task 2 Middle](./img/task1mid.jpg)
 
-End
+End - After the submit button is pressed
 
 ![Task 2 End](./img/task2end.jpg)
 
@@ -90,26 +90,26 @@ Start
 
 ![Task 3 Start](./img/task3start.jpg)
 
-End
+End - After the "Call Mom" checkbox is pressed
 
 ![Task 3 End](./img/task3end.jpg)
 
 ### Task 4 - Rename the item "Text John" to "Text John about bank statements"
-Starting with a list including the "Text John" task, users can press the dropdown arrow icon to the right of the task title. Pressing this opens up a menu with two options: "Edit Item" and "Delete Item". When users press the "Edit Item" option, they are taken to a new page where they can edit the task that pre-exists in the text field. Once they edit the task title, they can press the submit button and the item will be updated on the main todo screen. 
+Starting with a list including the "Text John" task, users can press the dropdown arrow icon to the right of the task title. Pressing this opens up a menu with two options: "Edit Item" and "Delete Item". When users press the "Edit Item" option, they are taken to a new page where they can edit the task title that pre-exists in the text field. Once they edit the task title, they can press the submit button and the item will be updated on the main todo screen. 
 
 Start
 
 ![Task 4 Start](./img/task4start.jpg)
 
-Middle 1
+Middle 1 - After the dropdown icon is pressed
 
 ![Task 4 Middle 1](./img/task4mid.jpg)
 
-Middle 2
+Middle 2 - After the edit item option is pressed
 
 ![Task 4 Middle 2](./img/task4mid2.jpg)
 
-End
+End - After the submit button is pressed
 
 ![Task 4 End](./img/task4end.jpg)
 
@@ -120,30 +120,30 @@ Start
 
 ![Task 5 Start](./img/task5start.jpg)
 
-Middle
+Middle - After the filter button is pressed
 
 ![Task 5 Middle](./img/task5mid.jpg)
 
-End
+End - After the "Uncompleted" option is pressed
 
 ![Task 5 End](./img/task5end.jpg)
 
 ### Task 6 - Delete all completed items
-Similar to task 5, users can press the filter icon to open up the filter menu. Pressing "Completed" hides all of the uncompleted tasks as well as changes the functionality of the button on the lower right (Note: this means users can not create tasks while only showing completed tasks, which we determined as okay due to the 80/20 rule). The button becomes a delete all button which deletes all of the tasks on screen. The "Completed" option on the filter menu also becomes bolded to remind the user that they are looking at a subset of tasks. 
+Similar to task 5, users can press the filter icon to open up the filter menu. Pressing "Completed" hides all of the uncompleted tasks as well as changes the functionality of the button on the lower right (Note: this means users can not create tasks while only showing completed tasks, which we determined as okay due to the 80/20 rule). The button becomes a delete all button which deletes all of the tasks on screen. The "Completed" option on the filter menu also becomes bolded to remind the user that they are looking at a subset of tasks. Once users press the delete all button, the completed tasks on screen are removed and users are brought back to the main todo page.
 
 Start
 
 ![Task 6 Start](./img/task6start.jpg)
 
-Middle 1
+Middle 1 - After the filter button is pressed
 
 ![Task 6 Middle 1](./img/task6mid.jpg)
 
-Middle 2
+Middle 2 - After the "Completed" option is pressed
 
 ![Task 6 Middle 2](./img/task6mid2.jpg)
 
-End
+End - After the delete all button is pressed
 
 ![Task 6 End](./img/task6end.jpg)
 

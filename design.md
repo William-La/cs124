@@ -32,7 +32,7 @@ We also considered adding a "select all" box similar to the one commonly used in
 #### Select All Box Gmail Example
 ![Select All Box](./img/gmailselect.jpg)
 
-We initially thought that this select all feature could help users select a screen of tasks (i.e. all completed tasks) and easily delete them. However, we then thought about the 80-20 rule and determined that this feature may detract from the simplicity of our app. The conclusion we reached was that users would likely only delete all of the tasks on their screen when they were looking at all of the completed tasks. Otherwise, users would likely delete individual tasks using the dropdown menu for each task. So, we decided against adding this select all box and instead modified our button in the lower right of the screen to be a delete all button when users show only completed tasks.
+We initially thought that this select all feature could help users select a screen of tasks (i.e. all completed tasks) and easily delete them. However, we then thought about the 80-20 rule and determined that this feature may detract from the simplicity of our app. The conclusion we reached was that users would likely only delete all of the tasks on their screen when they were looking at all of the completed tasks. Otherwise, users would likely delete individual tasks using the dropdown menu for each task. So, we decided against adding this select all box and instead modified our button in the lower right of the screen to be a delete all button only when users show all completed tasks.
 
 #### Select All Box Concept Design
 ![Select All Box](./img/selectall.jpg)
@@ -54,6 +54,8 @@ After
 Final Design
 ------------
 ### Task 1 - In an empty list, create an item named "Buy new John Grisham book"
+Users are presented with an empty list and are able to press the plus button in the lower right of the screen to begin creating a new todo task. When users press the button, they are taken to a new task creation screen where they can enter a task title and submit their task by pressing the check button in the lower right. Once they submit their task, it is viewable on the main todo page.
+
 Start
 
 ![Task 1 Start](./img/task1startafter.jpg)
@@ -67,6 +69,8 @@ End
 ![Task 1 End](./img/task1end.jpg)
 
 ### Task 2 - In a non-empty list, create an item named "Eat Lunch"
+Task 2 is very similar to task 1; however, users start with a non-empty list. Users can press the plus button to create and submit a task. This task appears under the task that was previously there. 
+
 Start
 
 ![Task 2 Start](./img/task1end.jpg)
@@ -80,6 +84,8 @@ End
 ![Task 2 End](./img/task2end.jpg)
 
 ### Task 3 - Mark the item named "Call Mom" completed
+Users start with a list of tasks including the "Call Mom" task. They are able to click the empty checkbox next to the task title to complete the task, which visually strikes through the title and adds a check to the checkbox. 
+
 Start
 
 ![Task 3 Start](./img/task3start.jpg)
@@ -89,6 +95,8 @@ End
 ![Task 3 End](./img/task3end.jpg)
 
 ### Task 4 - Rename the item "Text John" to "Text John about bank statements"
+Starting with a list including the "Text John" task, users can press the dropdown arrow icon to the right of the task title. Pressing this opens up a menu with two options: "Edit Item" and "Delete Item". When users press the "Edit Item" option, they are taken to a new page where they can edit the task that pre-exists in the text field. Once they edit the task title, they can press the submit button and the item will be updated on the main todo screen. 
+
 Start
 
 ![Task 4 Start](./img/task4start.jpg)
@@ -106,6 +114,8 @@ End
 ![Task 4 End](./img/task4end.jpg)
 
 ### Task 5 - Show only uncompleted items
+Starting with the todo main page, users can press the filter icon on the top right of the screen to open up a filter menu. This filter menu has "Uncompleted" and "Completed" as options. Pressing "Uncompleted" updates the main todo page to not include the completed tasks. The "Uncompleted" option becomes bolded to remind the user that they are looking at that subset of tasks.
+
 Start
 
 ![Task 5 Start](./img/task5start.jpg)
@@ -119,6 +129,8 @@ End
 ![Task 5 End](./img/task5end.jpg)
 
 ### Task 6 - Delete all completed items
+Similar to task 5, users can press the filter icon to open up the filter menu. Pressing "Completed" hides all of the uncompleted tasks as well as changes the functionality of the button on the lower right (Note: this means users can not create tasks while only showing completed tasks, which we determined as okay due to the 80/20 rule). The button becomes a delete all button which deletes all of the tasks on screen. The "Completed" option on the filter menu also becomes bolded to remind the user that they are looking at a subset of tasks. 
+
 Start
 
 ![Task 6 Start](./img/task6start.jpg)

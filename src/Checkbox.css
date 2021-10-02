@@ -1,0 +1,19 @@
+.todo-checkbox {
+    background-color:#ded9cd;
+    border: black;
+    grid-column: 1/ span 1;
+    width: 100px;
+    height: 100px;
+    margin-right: 30px;
+    margin-left: 55px;
+}
+
+.completed {
+    background: blueviolet;
+    width: 10px;
+    height: 10px;
+}
+
+.uncompleted {
+    visibility: hidden;
+}

@@ -31,12 +31,27 @@ const initialData = [
 
 
 
+
 function App() {
     const [data, setData] = useState(initialData);
    
+
+    function handleNewTask(task) {
+        setData([...data, {
+            id: "4",
+            title: task,
+            completed: false
+        }
+        
+        
+        ])
+    }
     return <div>
         <Header/>
-        <List list={data}/>
+        <List list={data}
+                onNewTask={handleNewTask}
+        
+        />
         </div>;
 }
 

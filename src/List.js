@@ -42,7 +42,9 @@ function List(props) {
     
     return <div>
         <div class="todo-body">
-            {props.list.map(a => <Task a={a}/>)}
+            {props.filteredTodos ? 
+            props.filteredTodos.map(a => <Task a={a} onCompleted={props.onCompleted}/>) :
+            props.list.map(a => <Task a={a} onCompleted={props.onCompleted}/>)}
             <AddCircleIcon style={{fontSize:"150px",
                                     gridColumn: "1/ span 1",
                                     gridRow: "9/ span 1",

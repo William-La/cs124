@@ -4,7 +4,7 @@ import List from './List';
 
 // import People from './People';
 
-import { useState } from 'react';
+import {  useState, useEffect } from 'react';
 
 const initialData = [
     {
@@ -34,22 +34,56 @@ const initialData = [
 
 function App() {
     const [data, setData] = useState(initialData);
+    const [view, setView] = useState('all');
+    const [filteredTodos, setFilteredTodos] = useState(null);
+
+    useEffect(() => {
+        filterHandler();
+      }, [data, view]);
+    
+
+    function handleView(value) {
+        setView(value);
+    }
+
+    const filterHandler = () => {
+        switch(view) {
+          case "completed":
+            setFilteredTodos(data.filter((task) => task.completed === true));
+            break;
+          case "uncompleted":
+            setFilteredTodos(data.filter((task) => task.completed === false));
+            break;
+          default:
+            setFilteredTodos(data);
+            break;
+        }
+      };
+
    
 
-    function handleNewTask(task) {
+    function handleNewTask(value) {
         setData([...data, {
-            id: "4",
-            title: task,
+            id: "4", //TODO: Fix ID
+            title: value,
             completed: false
         }
         
-        
         ])
     }
+    function handleCompleted(id) {
+        setData( data.map(
+            task => task.id !== id
+            ? task
+            : {...task, ["completed"]: !task.completed}))
+        
+    }
     return <div>
-        <Header/>
+        <Header view={handleView}/>
         <List list={data}
                 onNewTask={handleNewTask}
+                onCompleted={handleCompleted}
+                filteredTodos={filteredTodos}
         
         />
         </div>;

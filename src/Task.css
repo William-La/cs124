@@ -34,3 +34,7 @@
 .todo-task #1 {
     grid-row: 2/ span 1;
 }
+
+#complete {
+    text-decoration: line-through;
+}

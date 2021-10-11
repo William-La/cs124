@@ -60,7 +60,19 @@ function App() {
         }
       };
 
-   
+    function handleDeleteAll(tasks) {
+
+        setData(data.filter(task => !(tasks.includes(task))))
+        // for (const i = 0 ; i < tasks.size(); i++) {
+        //     data.pop();
+        // }
+       
+        
+    }
+
+    function handleDeleteTask(id) {
+        setData(data.filter(task => task.id !== id))
+    }
 
     function handleNewTask(value) {
         setData([...data, {
@@ -84,6 +96,9 @@ function App() {
                 onNewTask={handleNewTask}
                 onCompleted={handleCompleted}
                 filteredTodos={filteredTodos}
+                onDeleteTask={handleDeleteTask}
+                onDeleteAll={handleDeleteAll}
+                view={view}
         
         />
         </div>;

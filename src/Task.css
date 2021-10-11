@@ -20,6 +20,11 @@
 
 }
 
+ #dropdown-bar {
+    font-size: 115px;
+    padding-left: 70px;
+}
+
 .task-text {
     font-size: 35px;
     padding-left: 50px;

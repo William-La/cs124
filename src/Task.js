@@ -1,7 +1,7 @@
 import React from "react"
 import "./Task.css"
 import Checkbox from "./Checkbox"
-
+import Dropdown from "./Dropdown"
 
 function Task(props) {
     return <div>
@@ -9,7 +9,13 @@ function Task(props) {
             <Checkbox completed={props.a.completed} onCompleted={() => props.onCompleted(props.a.id)}/>
             <div class="todo-item">
                 {props.a.completed ? <p class="task-text" id="complete">{props.a.title}</p> : <p class="task-text">{props.a.title}</p>}
+                <div class="todo-edit">
+                <Dropdown id="dropdown-bar"/>
+                </div> 
             </div>
+        
+           
+
         </div>
     </div>
 

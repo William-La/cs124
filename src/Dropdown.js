@@ -80,7 +80,9 @@ const StyledMenu = styled((props) => (
               style={{marginRight: "100px",
                       marginTop: "-155px",
                     left: "600px",
-                    transform: "scale(1.5)"
+                    transform: "scale(1.5)",
+                    background: "none",
+                    color: "black"
                 }}
             >
               

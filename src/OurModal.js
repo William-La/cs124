@@ -22,24 +22,28 @@ const style = {
 export default function OurModal(props) {
   const [input, setInput] = useState(''); 
   const inputTask = useRef(null);
-
   function handleChange(e) {
       setInput(e.target.value);
   }
     return (
       <Modal
       open={props.open}
-      onClose={props.onClose}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description">
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h5" component="h2">
-            Please enter a new task
+            {props.modalText}
           </Typography>
-          <form onSubmit={() => props.handleAction(input)}> 
+          <form onSubmit={() => {props.handleAction(input); setInput('');}}> 
           <label>
 
-          <input id="inputText" type="text" placeholder={props.placeholder} ref={inputTask} value={input} onChange={handleChange}/>
+          <input id="inputText" 
+                  type="text" 
+                  maxlength = "30"
+                  placeholder={props.placeholder} 
+                  ref={inputTask} 
+                  value={input} 
+                  onChange={handleChange}/>
           
           </label>
         <input id="submitButton" type="submit" value="Submit" />

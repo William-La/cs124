@@ -118,7 +118,8 @@ const StyledMenu = styled((props) => (
             </StyledMenu>
             <OurModal open={modalOpen}
               onClose={handleModalClose}
-              placeholder={"Enter a new task"}
+              placeholder={props.title}
+              modalText={"Please edit task"}
               handleAction={handleEdit}
             />
           </div>

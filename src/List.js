@@ -75,6 +75,7 @@ function List(props) {
                 open={open}
                 placeholder={"Enter a new task"}
                 onNewTask={props.onNewTask}
+                modalText={"Please enter a new task"}
                 handleAction={handleSubmit}
               />
         {/* <Modal

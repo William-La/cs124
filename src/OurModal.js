@@ -4,6 +4,7 @@ import Modal from '@mui/material/Modal';
 import { useState } from "react";
 import { useRef } from "react";
 
+// Material UI JSS styles for the Modal component. 
 const style = {
   position: 'absolute',
   top: '50%',
@@ -26,6 +27,7 @@ export default function OurModal(props) {
       setInput(e.target.value);
   }
     return (
+      // Creates a Modal for inputting new values.
       <Modal
       open={props.open}
       aria-labelledby="modal-modal-title"
@@ -36,7 +38,7 @@ export default function OurModal(props) {
           </Typography>
           <form onSubmit={() => {props.handleAction(input); setInput('');}}> 
           <label>
-
+          {/* Changes text depending on the actions (editing or deleting) */}
           <input id="inputText" 
                   type="text" 
                   maxlength = "30"
@@ -47,7 +49,6 @@ export default function OurModal(props) {
           
           </label>
         <input id="submitButton" type="submit" value="Submit" />
-
         </form>
 
         </Box>

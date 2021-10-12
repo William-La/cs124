@@ -5,13 +5,12 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import NativeSelect from '@mui/material/NativeSelect';
 
-
+// JSS styles for our Dropdown.
 const style = {
     paddingLeft: '155px',
     paddingTop: '191px',
     transform: 'scale(1.5)'
 }
-
 
 function Header(props) {
     function DropDown() {
@@ -30,6 +29,7 @@ function Header(props) {
                     id: 'uncontrolled-native',
                   }}
                 >
+                  {/* Different options for our menu. */}
                   <option value="all">All</option>
                   <option value="completed">Completed</option>
                   <option value="uncompleted">Uncompleted</option>
@@ -46,5 +46,4 @@ function Header(props) {
          </div>
     </div>
 }
-
 export default Header;

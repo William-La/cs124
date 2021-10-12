@@ -5,14 +5,12 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import EditIcon from '@mui/icons-material/Edit';
-import Divider from '@mui/material/Divider';
-import ArchiveIcon from '@mui/icons-material/Archive';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import OurModal from "./OurModal"
 import { useState } from "react"
 
+// MaterialUI JSS to style the Menu.
 const StyledMenu = styled((props) => (
         <Menu
           elevation={0}
@@ -28,7 +26,8 @@ const StyledMenu = styled((props) => (
         />
       ))(({ theme }) => ({
 
-
+        // Material UI root themes for different incoperated components within the 
+        // Menu iteself. 
         '& .MuiPaper-root': {
           borderRadius: 6,
 
@@ -63,13 +62,15 @@ const StyledMenu = styled((props) => (
         const [anchorEl, setAnchorEl] = React.useState(null);
         const open = Boolean(anchorEl);
         
+        // Handles clicking on the dropdown arrow.
         const handleClick = (event) => {
           setAnchorEl(event.currentTarget);
         };
+        // Handles closing the dropdown arrow.
         const handleClose = () => {
           setAnchorEl(null);
         };
-
+        // Allows us to edit the Modal.
         function handleEdit(input) {
           props.onEditTask(props.id, input);
           handleModalClose();
@@ -77,6 +78,7 @@ const StyledMenu = styled((props) => (
       
         return (
           <div>
+            {/* Creates a Menu that can open and close and supports a Modal/Deletion */}
             <Button
               id="demo-customized-button"
               aria-controls="demo-customized-menu"
@@ -94,8 +96,7 @@ const StyledMenu = styled((props) => (
                     color: "black",
                     position: "fixed"
                 }}
-            >
-              
+            >  
             </Button>
             <StyledMenu
               id="demo-customized-menu"
@@ -107,6 +108,7 @@ const StyledMenu = styled((props) => (
               onClose={handleClose}
 
             >
+              {/* Each action available for the Dropdown */}
               <MenuItem onClick={() => {handleModalOpen(); handleClose()}} disableRipple>
                 <EditIcon />
                 Edit
@@ -116,6 +118,7 @@ const StyledMenu = styled((props) => (
                 Delete
               </MenuItem>
             </StyledMenu>
+            {/* Creates a Modal component to edit a task. */}
             <OurModal open={modalOpen}
               onClose={handleModalClose}
               placeholder={props.title}

@@ -35,6 +35,7 @@ function App() {
     const [view, setView] = useState('all');
     const [filteredTodos, setFilteredTodos] = useState(null);
 
+    // An effect to ensure our updated filters work.
     useEffect(() => {
         filterHandler();
       }, [data, view]);
@@ -44,6 +45,7 @@ function App() {
         setView(value);
     }
 
+    // Switches between the different cases a todo task could be.
     const filterHandler = () => {
         switch(view) {
           case "completed":
@@ -58,18 +60,15 @@ function App() {
         }
       };
 
+    // Deletes ALL tasks.
     function handleDeleteAll(tasks) {
-
         setData(data.filter(task => !(tasks.includes(task))))
-
-       
-        
     }
-
+    // Only deletes one task.
     function handleDeleteTask(id) {
         setData(data.filter(task => task.id !== id))
     }
-
+    // Adds a new task to our data.
     function handleNewTask(value) {
         setData([...data, {
             id: generateUniqueID(),
@@ -79,6 +78,7 @@ function App() {
         
         ])
     }
+    // Changes the value of completed when a user checks off something.
     function handleCompleted(id) {
         setData( data.map(
             task => task.id !== id
@@ -86,7 +86,7 @@ function App() {
             : {...task, ["completed"]: !task.completed}))
         
     }
-
+    // Edits a task value.
     function handleEdit(id, value) {
         setData( data.map(
             task => task.id !== id
@@ -104,9 +104,7 @@ function App() {
                 onDeleteAll={handleDeleteAll}
                 onEditTask={handleEdit}
                 view={view}
-        
         />
         </div>;
 }
-
 export default App;

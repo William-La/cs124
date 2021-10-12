@@ -10,7 +10,8 @@ import ArchiveIcon from '@mui/icons-material/Archive';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-
+import OurModal from "./OurModal"
+import { useState } from "react"
 
 const StyledMenu = styled((props) => (
         <Menu
@@ -31,7 +32,6 @@ const StyledMenu = styled((props) => (
         '& .MuiPaper-root': {
           borderRadius: 6,
 
-        //   marginTop: theme.spacing(1),
           minWidth: 180,
           color:
             theme.palette.mode === 'light' ? 'rgb(55, 65, 81)' : theme.palette.grey[300],
@@ -56,15 +56,24 @@ const StyledMenu = styled((props) => (
         },
       }));
       
-      export default function Dropdown() {
+      export default function Dropdown(props) {
+        const [modalOpen, setModalOpen] = useState(false);
+        const handleModalOpen = () => setModalOpen(true);
+        const handleModalClose = () => setModalOpen(false);
         const [anchorEl, setAnchorEl] = React.useState(null);
         const open = Boolean(anchorEl);
+        
         const handleClick = (event) => {
           setAnchorEl(event.currentTarget);
         };
         const handleClose = () => {
           setAnchorEl(null);
         };
+
+        function handleEdit(input) {
+          props.onEditTask(props.id, input);
+          handleModalClose();
+        }
       
         return (
           <div>
@@ -78,11 +87,12 @@ const StyledMenu = styled((props) => (
               onClick={handleClick}
               endIcon={<KeyboardArrowDownIcon />}
               style={{marginRight: "100px",
-                      marginTop: "-155px",
-                    left: "600px",
+                      marginTop: "35px",
+                    left: "820px",
                     transform: "scale(1.5)",
                     background: "none",
-                    color: "black"
+                    color: "black",
+                    position: "fixed"
                 }}
             >
               
@@ -95,19 +105,22 @@ const StyledMenu = styled((props) => (
               anchorEl={anchorEl}
               open={open}
               onClose={handleClose}
-              style={{transform: "scale(1.4)",
-                     marginLeft: "-78px",
-                     marginTop: "60px"}}
+
             >
-              <MenuItem onClick={handleClose} disableRipple>
+              <MenuItem onClick={() => {handleModalOpen(); handleClose()}} disableRipple>
                 <EditIcon />
                 Edit
               </MenuItem>
-              <MenuItem onClick={handleClose} disableRipple>
+              <MenuItem onClick={() => {props.onDeleteTask(); handleClose()}} disableRipple>
                 <FileCopyIcon />
                 Delete
               </MenuItem>
             </StyledMenu>
+            <OurModal open={modalOpen}
+              onClose={handleModalClose}
+              placeholder={"Enter a new task"}
+              handleAction={handleEdit}
+            />
           </div>
         );
       }

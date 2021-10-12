@@ -1,9 +1,7 @@
 import './style.css';
 import Header from './Header';
 import List from './List';
-
-// import People from './People';
-
+import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import {  useState, useEffect } from 'react';
 
 const initialData = [
@@ -63,9 +61,7 @@ function App() {
     function handleDeleteAll(tasks) {
 
         setData(data.filter(task => !(tasks.includes(task))))
-        // for (const i = 0 ; i < tasks.size(); i++) {
-        //     data.pop();
-        // }
+
        
         
     }
@@ -76,7 +72,7 @@ function App() {
 
     function handleNewTask(value) {
         setData([...data, {
-            id: "4", //TODO: Fix ID
+            id: generateUniqueID(),
             title: value,
             completed: false
         }
@@ -90,6 +86,14 @@ function App() {
             : {...task, ["completed"]: !task.completed}))
         
     }
+
+    function handleEdit(id, value) {
+        setData( data.map(
+            task => task.id !== id
+            ? task
+            : {...task, ["title"]: value}))
+        
+    }
     return <div>
         <Header view={handleView}/>
         <List list={data}
@@ -98,6 +102,7 @@ function App() {
                 filteredTodos={filteredTodos}
                 onDeleteTask={handleDeleteTask}
                 onDeleteAll={handleDeleteAll}
+                onEditTask={handleEdit}
                 view={view}
         
         />

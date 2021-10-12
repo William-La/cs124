@@ -10,7 +10,7 @@ function Task(props) {
             <div class="todo-item">
                 {props.a.completed ? <p class="task-text" id="complete">{props.a.title}</p> : <p class="task-text">{props.a.title}</p>}
                 <div class="todo-edit">
-                <Dropdown id="dropdown-bar"/>
+                <Dropdown class="dropdown-bar" id={props.a.id} onDeleteTask={() => props.onDeleteTask(props.a.id)} onEditTask={props.onEditTask}/>
                 </div> 
             </div>
         

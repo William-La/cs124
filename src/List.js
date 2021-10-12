@@ -2,10 +2,11 @@ import React from "react";
 import Task from "./Task";
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
+import OurModal from "./OurModal"
+// import Box from '@mui/material/Box';
+// import Button from '@mui/material/Button';
+// import Typography from '@mui/material/Typography';
+// import Modal from '@mui/material/Modal';
 import "./List.css";
 import { useState } from "react";
 import { useRef } from "react";
@@ -30,24 +31,28 @@ function List(props) {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    const [input, setInput] = useState(''); 
-    const inputTask = useRef(null);
+    // const [input, setInput] = useState(''); 
+    // const inputTask = useRef(null);
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        props.onNewTask(input);
-        handleClose();
-    }
+    // function handleSubmit(e) {
+    //     e.preventDefault();
+    //     props.onNewTask(input);
+    //     handleClose();
+    // }
 
-    function handleChange(e) {
-        setInput(e.target.value);
-    }
+    // function handleChange(e) {
+    //     setInput(e.target.value);
+    // }
+    function handleSubmit(input) {
+      props.onNewTask(input);
+      handleClose();
+  }
     
     return <div>
         <div class="todo-body">
             {props.filteredTodos ? 
-            props.filteredTodos.map(a => <Task a={a} onCompleted={props.onCompleted}/>) :
-            props.list.map(a => <Task a={a} onCompleted={props.onCompleted}/>)}
+            props.filteredTodos.map(a => <Task a={a} onCompleted={props.onCompleted} onEditTask={props.onEditTask} onDeleteTask={props.onDeleteTask}/>) :
+            props.list.map(a => <Task a={a} onCompleted={props.onCompleted} onEditTask={props.onEditTask} onDeleteTask={props.onDeleteTask}/>)}
             {props.view === "completed" ?
             <RemoveCircleIcon style={{fontSize:"150px",
                                         gridColumn: "1/ span 1",
@@ -66,7 +71,13 @@ function List(props) {
             }
             
             <div>
-        <Modal
+              <OurModal 
+                open={open}
+                placeholder={"Enter a new task"}
+                onNewTask={props.onNewTask}
+                handleAction={handleSubmit}
+              />
+        {/* <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
@@ -86,7 +97,7 @@ function List(props) {
         </form>
 
         </Box>
-      </Modal>
+      </Modal> */}
     </div>
          </div>
     </div>

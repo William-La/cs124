@@ -1,11 +1,11 @@
-# CS 124 Lab 1
+# CS 124 Lab 2
 Devika Mehr and William La
 
 CS124 Section 1
 
 [Link to index page](https://github.com/devikamehr/cs124/blob/lab1/index.html)
 
-Sept. 23 2021
+Oct. 14th 2021
 
 Design Decisions and Rationale
 ------------------------------

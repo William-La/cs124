@@ -1,8 +1,9 @@
+import React from "react";
 import './style.css';
 import Header from './Header';
 import List from './List';
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
-import {  useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const initialData = [
     {

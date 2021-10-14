@@ -1,6 +1,6 @@
 {
   "hompage": "https://william-la.github.io/cs124/",
-  "name": "7-components",
+  "name": "lab2",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -18,12 +18,13 @@
     "react-scripts": "4.0.3"
   },
   "scripts": {
+    "install gh-pages": "npm install gh-pages --save-dev",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

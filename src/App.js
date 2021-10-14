@@ -13,8 +13,8 @@ const initialData = [
     },
     {
         id: "1",
-        title: "be sad and lonely and",
-        completed: false
+        title: "Complete 124 lab",
+        completed: true
     },
     {
         id: "2",

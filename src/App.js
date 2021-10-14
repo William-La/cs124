@@ -1,5 +1,5 @@
 import React from "react";
-import './style.css';
+// import './style.css';
 import Header from './Header';
 import List from './List';
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
@@ -13,8 +13,8 @@ const initialData = [
     },
     {
         id: "1",
-        title: "Get very happy",
-        completed: true
+        title: "be sad and lonely and",
+        completed: false
     },
     {
         id: "2",

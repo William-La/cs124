@@ -88,13 +88,12 @@ const StyledMenu = styled((props) => (
               disableElevation
               onClick={handleClick}
               endIcon={<KeyboardArrowDownIcon />}
-              style={{marginRight: "100px",
-                      marginTop: "35px",
-                    left: "820px",
+              style={{
+                    bottom: "90px",
+                    left: "600px",
                     transform: "scale(1.5)",
                     background: "none",
-                    color: "black",
-                    position: "fixed"
+                    color: "black"
                 }}
             >  
             </Button>

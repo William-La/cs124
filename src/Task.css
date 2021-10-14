@@ -20,25 +20,19 @@
 
 }
 
- .dropdown-bar {
+.dropdown-bar {
     font-size: 115px;
     padding-left: 70px;
 }
 
 .task-text {
     font-size: 35px;
+    width: 600px;
     padding-left: 50px;
     padding-bottom: 10px;
     padding-right: 310px;
 }
 
-.todo-task #0 {
-    grid-row: 1/ span 1;
-}
-
-.todo-task #1 {
-    grid-row: 2/ span 1;
-}
 
 #complete {
     text-decoration: line-through;

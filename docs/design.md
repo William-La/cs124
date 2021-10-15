@@ -86,19 +86,6 @@ Another user who went through our todo list spotted an error within our implemen
 
 We're thankful that our user pointed out this bug and were able to make the appropriate fixes to the CSS.
 
-[OLD]
-
-For user testing, we conducted two tests with two different users. One user was an avid to-do list user while another user didn’t use them quite often. While they went through the screens, they enjoyed the colors and were able to speak out about their actions easily. One point the avid to-do list user mentioned was our broken heart emoji on the “empty tasks” screen sparked a bit of anxiety that she had no tasks to complete and it confused her on why it was sad. While going through the dropdown boxes, one user was confused at first with the “Edit” and “Delete” options but once they saw the next screen they realized that you could edit and delete the tasks. Overall, both of them enjoyed the colors and felt it was simple enough to use, and were eager to see how we’d improve it. 
-
-### Updating the empty task screen based on user feedback
-Before
-
-![Task 1 Start](./img/task1startbefore.jpg)
-
-After
-
-![Task 1 Start](./img/task1startafter.jpg)
-
 Final Design
 ------------
 ### Task 1 - In an empty list, create an item named "Buy new John Grisham book"

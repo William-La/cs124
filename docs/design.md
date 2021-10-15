@@ -9,7 +9,7 @@ Oct. 14th 2021
 
 Design Decisions and Rationale
 ------------------------------
-For this lab, we decided to follow through with most of the design choices we made in lab 1. This is because we enjoyed our design and also believed it would be good practice to le33arn how to link everything with React. It was also convenient to pull from our existing CSS file. 
+For this lab, we decided to follow through with most of the design choices we made in lab 1. This is because we enjoyed our design and also believed it would be good practice to learn how to link everything with React. It was also convenient to pull from our existing CSS file. 
 
 A design decision that differed from our first lab was the flow of our task filter action. We previously had a filter icon that displayed a menu when it was clicked. The menu would stay on the screen to display the state of the filter.
 
@@ -21,6 +21,7 @@ One of our user testers mentioned that it was hard to understand what the icon w
 #### New Filter
 ![New Filter Initial](./img/newFilterInitial.png)
 ![New Filter](./img/newFilter.png)
+![New Filter After](./img/newFilterAfter.png)
 
 Another design decision we made was in the flow of creating a new task. Our previous approach took our users to a new task creation page whenever they pressed the plus button in the bottom right of the screen. 
 

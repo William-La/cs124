@@ -155,7 +155,7 @@ Start
 
 ![Task 5 Start](./img/lab2/task5start.png)
 
-Middle - After the filter button is pressed
+Middle - After the "View" bar is pressed
 
 ![Task 5 Middle](./img/lab2/task5middle.png)
 
@@ -182,18 +182,10 @@ Challenges
 ----------
 One challenge we faced was definitely debugging react. While in other languages you can get exact error messages with syntactical rules, in React, sometimes the error messages are so unique to your project that the internet has no help. But, this required us to be resourceful with debugging and also trying to step through our code logically. 
 
-Another challenge we faced was figuring out the MaterialUI CSS versus our CSS as well. We picked a library that one of the partners felt extremely confident in using as they have had lots of experience with the library before. But, when we imported most of the modules into our project, we realized that the way MaterialUI styles their components were different from our .css files in our project. We were able to resolve this issue by using google inspect element in-line styles and learning more about useStyles() and JSS in React. While sometimes it was extremely easy to figure out which MaterialUI class we had to manipulate, sometimes, it could be incredibly frustrating indexing through different classes and trying to manipulate the component. But, as time went on, we were able to find a pattern and design our app just the way we liked. 
-
-[OLD]
-
-While creating our tasks, we faced a few challenges towards the end of each task. When we would add on a new feature or edit the way our task looked like, we would often forget to add the new ids and classes to our original starter and middle files. This would often be caught towards the end of the process, when we had completely forgotten what we had edited. While we were able to fix this with inspect element, it was still a challenge to figure out what had to be edited and fixed to re-adjust and create a more cohesive look. 
+Another challenge we faced was figuring out the MaterialUI CSS versus our CSS as well. We picked a library that one of the partners felt extremely confident in using as they have had lots of experience with the library before. But, when we imported most of the modules into our project, we realized that the way MaterialUI styles their components were different from the .css files in our project. We were able to resolve this issue by using google inspect element, in-line styles, and learning more about useStyles() and JSS in React. While sometimes it was extremely easy to figure out which MaterialUI class we had to manipulate, sometimes it could be incredibly frustrating indexing through different classes and trying to manipulate the component. But, as time went on, we were able to find a pattern and design our app just the way we liked. 
 
 Parts of the Design We're Most Proud of
 ---------------------------------------
-One task that seemed incredibly daunting was our “filter” task which had to check the status of a task and only display the user-selected filter on the screen. At first, we suspected that this would take quite a large portion of our time together so we decided to leave it off till the end. But, after reading up on useEffect() and looking into the switch keyword, we realized that we could definitely understand how to start this issue and how to connect the pieces together. When we were able to get our filter to work, we felt incredibly proud and also more confident in our debugging skills too.  
+One task that seemed incredibly daunting was our “filter” task which had to check the status of a task and only display the user-selected filter on the screen. At first, we suspected that this would take quite a large portion of our time together so we decided to leave it off till the end. But, after reading up on useEffect() and looking into the switch keyword, we realized that we could definitely understand how to implement this and how to connect the pieces together. When we were able to get our filter to work, we felt incredibly proud and also more confident in our debugging skills too. We're also very proud of the design decisions we made when implementing this filter option, as we believe the "View" bar and dropdown menu are very user friendly approaches to filtering. 
 
 Finally, we’re extremely proud of everything we made! It seemed daunting at first to make a WHOLE application in React, but, after many hours of debugging, celebration, and google searching we are so proud of it and think it can definitely evolve to something even better too! 
-
-[OLD]
-
-We’re most proud of our color choice and mainly being able to implement every idea we had. When we first started, we didn’t know if we would be able to implement each and every item and figured that we could adapt our design to something simpler. But, as we were able to use the skills learned from class, we were able to mainly attempt every idea we had. One thing we’re most proud of is using Google’s icons and incorporating that into our look.

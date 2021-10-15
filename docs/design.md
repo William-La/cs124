@@ -27,18 +27,20 @@ Another design decision we made was in the flow of creating a new task. Our prev
 #### Old Task Creation
 ![Old Task Creation](./img/oldTaskCreation.jpg)
 
-Rather than take our user to a new screen, we decided to prompt our users with a modal when they want to create a new task. We felt that this modal approach gave our users a more seamless experience 
+Rather than take our user to a new screen, we decided to prompt our users with a modal when they want to create a new task. We felt that this modal approach gave our users a more seamless experience for task creation. We also extended this modal functionality to our edit tasks, which also used to take users to a new screen. 
 
-[OLD]
+#### New Task Creation
+![New Task Creation](./img/newTaskCreation.png)
 
-Our biggest design choice was to ensure our header remained the same on each screen. We agreed on this as we believed this would give a cohesive look and not add “too much” to the changing screens. 
-Similarly, we wanted to ensure our black button on the bottom remained in the same position in every screen. But, the icon would change from a plus button to a delete button for different tasks. This would ensure familiarity of where the action button would be, but would also visually change for each command. 
+#### Edit Task Modal
+![Edit Task](./img/editTask.png)
+
+### Design Decisions and Rationale From Lab 1
+
+We wanted to ensure our black button on the bottom remained in the same position in every screen. But, the icon would change from a plus button to a delete button for different tasks. This would ensure familiarity of where the action button would be, but would also visually change for each command. 
 We also ensured we had the same color scheme for every task and just lightened the task boxes from the background to make sure the overall look was light and easy on the eyes to read. 
-Also, for our Filter feature, we wanted to ensure the user knew which “screen” they were on, so we decided to bolden the text to visually alert the user they were looking at either the “completed” or “uncompleted” screen.
-Finally, we ensured we had down arrows for any dropdown menu and a tappable filter button as well. We wanted a few interactive features to minimize how complicated the application could get, but also provide more functionality. 
+We wanted a few interactive features to minimize how complicated the application could get, but also provide more functionality. 
 
-#### Concept Designs for First Few Tasks
-![Concept Designs](./img/brainstorm.jpg)
 
 Alternative Designs Considered
 ------------------------------

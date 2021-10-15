@@ -36,13 +36,11 @@ Rather than take our user to a new screen, we decided to prompt our users with a
 #### Edit Task Modal
 ![Edit Task](./img/editTask.png)
 
-### Design Decisions and Rationale From Lab 1
+### Relevant Design Decisions, Alternative Designs, and Rationale From Lab 1
 
 We wanted to ensure our black button on the bottom remained in the same position in every screen. But, the icon would change from a plus button to a delete button for different tasks. This would ensure familiarity of where the action button would be, but would also visually change for each command. 
 We also ensured we had the same color scheme for every task and just lightened the task boxes from the background to make sure the overall look was light and easy on the eyes to read. 
 We wanted a few interactive features to minimize how complicated the application could get, but also provide more functionality. 
-
-### Alternative Designs From Lab 1
 
 For the dropdown menu functionality where we can choose to edit or delete an individual item, we initially had two designs. 
 The first design had the dropdown icon rotate and shift to the left while the two menu options appear next to it after the icon was clicked.

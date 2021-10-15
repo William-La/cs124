@@ -89,7 +89,7 @@ We're thankful that our user pointed out this bug and were able to make the appr
 Final Design
 ------------
 ### Task 1 - In an empty list, create an item named "Buy new John Grisham book"
-Users are presented with an empty list and are able to press the plus button in the lower right of the screen to begin creating a new todo task. When users press the button, they are taken to a new task creation screen where they can enter a task title and submit their task by pressing the check button in the lower right. Once they submit their task, it is viewable on the main todo page.
+Users are presented with an empty list and are able to press the plus button in the lower right of the screen to begin creating a new todo task. When users press the button, a task creation modal appears where they can enter a task title and submit their task by pressing the submit button. Once they submit their task, it is viewable on the main todo page.
 
 Start
 
@@ -130,7 +130,7 @@ End - After the "Call Mom" checkbox is pressed
 ![Task 3 End](./img/lab2/task3end.png)
 
 ### Task 4 - Rename the item "Text John" to "Text John about bank statements"
-Starting with a list including the "Text John" task, users can press the dropdown arrow icon to the right of the task title. Pressing this opens up a menu with two options: "Edit Item" and "Delete Item". When users press the "Edit Item" option, they are taken to a new page where they can edit the task title that pre-exists in the text field. Once they edit the task title, they can press the submit button and the item will be updated on the main todo screen. 
+Starting with a list including the "Text John" task, users can press the dropdown arrow icon to the right of the task title. Pressing this opens up a menu with two options: "Edit" and "Delete". When users press the "Edit" option, a modal appears where they can enter an updated task title in the text field. Once they edit the task title, they can press the submit button and the item will be updated on the main todo screen. 
 
 Start
 
@@ -142,14 +142,14 @@ Middle 1 - After the dropdown icon is pressed
 
 Middle 2 - After the edit item option is pressed
 
-![Task 4 Middle 2](./img/task4mid2.jpg)
+![Task 4 Middle 2](./img/editTask.png)
 
 End - After the submit button is pressed
 
 ![Task 4 End](./img/lab2/task4end.png)
 
 ### Task 5 - Show only uncompleted items
-Starting with the todo main page, users can press the filter icon on the top right of the screen to open up a filter menu. This filter menu has "Uncompleted" and "Completed" as options. Pressing "Uncompleted" updates the main todo page to not include the completed tasks. The "Uncompleted" option becomes bolded to remind the user that they are looking at that subset of tasks.
+Starting with the todo main page, users can press on the "View" bar on the top right of the screen to open up a filter dropdown menu. This menu has "All", "Uncompleted", and "Completed" as options. Pressing "Uncompleted" updates the main todo page to not include the completed tasks. The "Uncompleted" option becomes the value of the "View" bar to remind the user that they are looking at that subset of tasks.
 
 Start
 
@@ -164,19 +164,15 @@ End - After the "Uncompleted" option is pressed
 ![Task 5 End](./img/lab2/task5end.png)
 
 ### Task 6 - Delete all completed items
-Similar to task 5, users can press the filter icon to open up the filter menu. Pressing "Completed" hides all of the uncompleted tasks as well as changes the functionality of the button on the lower right (Note: this means users can not create tasks while only showing completed tasks, which we determined as okay due to the 80/20 rule). The button becomes a delete all button which deletes all of the tasks on screen. The "Completed" option on the filter menu also becomes bolded to remind the user that they are looking at a subset of tasks. Once users press the delete all button, the completed tasks on screen are removed and users are brought back to the main todo page.
+Similar to task 5, users can press the "View" bar to open up the filter dropdown menu. Pressing "Completed" hides all of the uncompleted tasks as well as changes the functionality of the button on the lower right (Note: this means users can not create tasks while only showing completed tasks, which we determined as okay due to the 80/20 rule). The button becomes a delete all button which deletes all of the tasks on screen. The "Completed" option becomes the value of the "View" bar to remind the user that they are looking at a subset of tasks. Once users press the delete all button, the completed tasks on screen are removed.
 
 Start
 
 ![Task 6 Start](./img/lab2/task6start.png)
 
-Middle 1 - After the filter button is pressed
+Middle 1 - After the "Completed" view is selected
 
 ![Task 6 Middle 1](./img/lab2/task6middle.png)
-
-Middle 2 - After the "Completed" option is pressed
-
-![Task 6 Middle 2](./img/lab2/task6mid2.png)
 
 End - After the delete all button is pressed
 

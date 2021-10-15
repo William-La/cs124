@@ -7,7 +7,7 @@ CS124 Section 1
 
 Oct. 14th 2021
 
-Design Decisions and Rationale
+Design Decisions, Rationale, and Alternative Designs Considered
 ------------------------------
 For this lab, we decided to follow through with most of the design choices we made in lab 1. This is because we enjoyed our design and also believed it would be good practice to learn how to link everything with React. It was also convenient to pull from our existing CSS file. 
 
@@ -42,12 +42,7 @@ We wanted to ensure our black button on the bottom remained in the same position
 We also ensured we had the same color scheme for every task and just lightened the task boxes from the background to make sure the overall look was light and easy on the eyes to read. 
 We wanted a few interactive features to minimize how complicated the application could get, but also provide more functionality. 
 
-
-Alternative Designs Considered
-------------------------------
-We did think about using our old design with a “Filter Icon” and text that congratulated the user if they did not have any tasks to complete. But, after the second phase of user testing, we were told that the text could be seen as encouraging users to “speed” through tasks to get to the kind message. Therefore, we decided that having a message displayed when there were no tasks displayed was not a good idea due to the constant feedback from our user testers. We also decided to create a dropdown menu as that was more obvious than what the filter did. 
-
-[OLD]
+### Alternative Designs From Lab 1
 
 For the dropdown menu functionality where we can choose to edit or delete an individual item, we initially had two designs. 
 The first design had the dropdown icon rotate and shift to the left while the two menu options appear next to it after the icon was clicked.

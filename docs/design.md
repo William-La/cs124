@@ -182,7 +182,7 @@ Middle 2 - After the "Completed" option is pressed
 
 End - After the delete all button is pressed
 
-![Task 6 End](./img/lab2/task6end.jpg)
+![Task 6 End](./img/lab2/task6end.png)
 
 Challenges
 ----------

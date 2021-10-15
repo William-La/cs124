@@ -12,11 +12,12 @@ Design Decisions and Rationale
 For this lab, we decided to follow through with most of the design choices we made in lab 1. This is because we enjoyed our design and also believed it would be good practice to learn how to link everything with React. It was also convenient to pull from our existing CSS file. 
 A design decision that differed from our first lab was the flow of our task filter action. We previously had a filter icon that displayed a menu when it was clicked. The menu would stay on the screen to display the state of the filter.
 
-[insert old filter image here]
+![Old Filter](./img/oldFilter.png)
 
 One of our user testers mentioned that it was hard to understand what the icon was and, after a bit of deliberation, we agreed that our lab 1 approach was clunky and unintuitive. Instead, we decided on a simple dropdown menu. We believe that a dropdown menu is a great approach because it is intuitive and displays the state of the filter without taking up additional space. 
 
-[insert new filter dropdown image here, possibly multiple screenshots with the menu and such]
+![New Filter Initial](./img/newFilterInitial.png)
+![New Filter](./img/newFilter.png)
 
 We also wanted to keep the visual cue that when you “check off a task” the task text also gets crossed off. Also, when you edit a pre-existing task, the placeholder text in our modal is the current task’s text. 
 

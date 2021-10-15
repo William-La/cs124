@@ -9,6 +9,19 @@ Oct. 14th 2021
 
 Design Decisions and Rationale
 ------------------------------
+For this lab, we decided to follow through with most of the design choices we made in lab 1. This is because we enjoyed our design and also believed it would be good practice to learn how to link everything with React. It was also convenient to pull from our existing CSS file. 
+A design decision that differed from our first lab was the flow of our task filter action. We previously had a filter icon that displayed a menu when it was clicked. The menu would stay on the screen to display the state of the filter.
+
+[insert old filter image here]
+
+One of our user testers mentioned that it was hard to understand what the icon was and, after a bit of deliberation, we agreed that our lab 1 approach was clunky and unintuitive. Instead, we decided on a simple dropdown menu. We believe that a dropdown menu is a great approach because it is intuitive and displays the state of the filter without taking up additional space. 
+
+[insert new filter dropdown image here, possibly multiple screenshots with the menu and such]
+
+We also wanted to keep the visual cue that when you “check off a task” the task text also gets crossed off. Also, when you edit a pre-existing task, the placeholder text in our modal is the current task’s text. 
+
+[OLD]
+
 Our biggest design choice was to ensure our header remained the same on each screen. We agreed on this as we believed this would give a cohesive look and not add “too much” to the changing screens. 
 Similarly, we wanted to ensure our black button on the bottom remained in the same position in every screen. But, the icon would change from a plus button to a delete button for different tasks. This would ensure familiarity of where the action button would be, but would also visually change for each command. 
 We also ensured we had the same color scheme for every task and just lightened the task boxes from the background to make sure the overall look was light and easy on the eyes to read. 
@@ -20,6 +33,10 @@ Finally, we ensured we had down arrows for any dropdown menu and a tappable filt
 
 Alternative Designs Considered
 ------------------------------
+We did think about using our old design with a “Filter Icon” and text that congratulated the user if they did not have any tasks to complete. But, after the second phase of user testing, we were told that the text could be seen as encouraging users to “speed” through tasks to get to the kind message. Therefore, we decided that having a message displayed when there were no tasks displayed was not a good idea due to the constant feedback from our user testers. We also decided to create a dropdown menu as that was more obvious than what the filter did. 
+
+[OLD]
+
 For the dropdown menu functionality where we can choose to edit or delete an individual item, we initially had two designs. 
 The first design had the dropdown icon rotate and shift to the left while the two menu options appear next to it after the icon was clicked.
 The second design features a menu that drops down after the icon was clicked featuring the two menu options. We ultimately decided to go with this second design as it was simpler and more accurately displayed the functionality expected from a dropdown icon.
@@ -40,6 +57,9 @@ We initially thought that this select all feature could help users select a scre
 
 User Testing
 ------------
+We had one user go through the application and she gave great feedback on two key parts. She mentioned that removing the text was a good idea as it can create feelings to “rush” through tasks to receive a message. When we told her that we used to have a message that said “Oh no! No more tasks to do” she mentioned that any text could make a user more anxious about their productivity. Therefore, we decided to remove the text altogether. Then, she mentioned that the filter icon was a bit confusing and did not look like something she would obviously tap at first glance. When I mentioned we were thinking about using a dropdown, she agreed that a dropdown is more obvious to a user than there are options hidden below. 
+[OLD]
+
 For user testing, we conducted two tests with two different users. One user was an avid to-do list user while another user didn’t use them quite often. While they went through the screens, they enjoyed the colors and were able to speak out about their actions easily. One point the avid to-do list user mentioned was our broken heart emoji on the “empty tasks” screen sparked a bit of anxiety that she had no tasks to complete and it confused her on why it was sad. While going through the dropdown boxes, one user was confused at first with the “Edit” and “Delete” options but once they saw the next screen they realized that you could edit and delete the tasks. Overall, both of them enjoyed the colors and felt it was simple enough to use, and were eager to see how we’d improve it. 
 
 ### Updating the empty task screen based on user feedback
@@ -149,8 +169,20 @@ End - After the delete all button is pressed
 
 Challenges
 ----------
+One challenge we faced was definitely debugging react. While in other languages you can get exact error messages with syntactical rules, in React, sometimes the error messages are so unique to your project that the internet has no help. But, this required us to be resourceful with debugging and also trying to step through our code logically. 
+
+Another challenge we faced was figuring out the MaterialUI CSS versus our CSS as well. We picked a library that one of the partners felt extremely confident in using as they have had lots of experience with the library before. But, when we imported most of the modules into our project, we realized that the way MaterialUI styles their components were different from our .css files in our project. We were able to resolve this issue by using google inspect element in-line styles and learning more about useStyles() and JSS in React. While sometimes it was extremely easy to figure out which MaterialUI class we had to manipulate, sometimes, it could be incredibly frustrating indexing through different classes and trying to manipulate the component. But, as time went on, we were able to find a pattern and design our app just the way we liked. 
+
+[OLD]
+
 While creating our tasks, we faced a few challenges towards the end of each task. When we would add on a new feature or edit the way our task looked like, we would often forget to add the new ids and classes to our original starter and middle files. This would often be caught towards the end of the process, when we had completely forgotten what we had edited. While we were able to fix this with inspect element, it was still a challenge to figure out what had to be edited and fixed to re-adjust and create a more cohesive look. 
 
 Parts of the Design We're Most Proud of
 ---------------------------------------
+One task that seemed incredibly daunting was our “filter” task which had to check the status of a task and only display the user-selected filter on the screen. At first, we suspected that this would take quite a large portion of our time together so we decided to leave it off till the end. But, after reading up on useEffect() and looking into the switch keyword, we realized that we could definitely understand how to start this issue and how to connect the pieces together. When we were able to get our filter to work, we felt incredibly proud and also more confident in our debugging skills too.  
+
+Finally, we’re extremely proud of everything we made! It seemed daunting at first to make a WHOLE application in React, but, after many hours of debugging, celebration, and google searching we are so proud of it and think it can definitely evolve to something even better too! 
+
+[OLD]
+
 We’re most proud of our color choice and mainly being able to implement every idea we had. When we first started, we didn’t know if we would be able to implement each and every item and figured that we could adapt our design to something simpler. But, as we were able to use the skills learned from class, we were able to mainly attempt every idea we had. One thing we’re most proud of is using Google’s icons and incorporating that into our look.

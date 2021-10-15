@@ -1,0 +1,20 @@
+
+/* Task 1 start css */
+
+body {
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+/* .all-links {
+
+} */
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #AF92C8;
+    grid-column: 1 / 6;
+    /* padding: 15px; */
+    
+}

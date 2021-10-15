@@ -1,0 +1,24 @@
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #AF92C8;
+    grid-column: 1 / 6;
+    /* padding: 15px; */
+}
+
+#title {
+    font-size: 10em;
+    padding-left: 30px;
+}
+
+FilterListIcon {
+    display: inline;
+    font-size: 150px;
+    padding-top: 135px;
+    padding-left: 285px;
+
+}
+
+.MuiBox-root css-ece9u5 {
+    background-color: orange !important;
+}

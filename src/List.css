@@ -1,0 +1,11 @@
+.todo-body {
+    display: grid;
+    grid-column: 1 / 6;
+    background-color: #FBF8EF;
+    grid-template-columns: 1fr;
+    grid-template-rows: 150px 150px 150px 150px 150px 150px;
+}
+
+#inputText, #submitButton {
+    font-size: 25px;
+}

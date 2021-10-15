@@ -159,7 +159,7 @@ Start
 
 Middle - After the filter button is pressed
 
-![Task 5 Middle](./img/lab2/task5mid.png)
+![Task 5 Middle](./img/lab2/task5middle.png)
 
 End - After the "Uncompleted" option is pressed
 
@@ -174,7 +174,7 @@ Start
 
 Middle 1 - After the filter button is pressed
 
-![Task 6 Middle 1](./img/lab2/task6mid.png)
+![Task 6 Middle 1](./img/lab2/task6middle.png)
 
 Middle 2 - After the "Completed" option is pressed
 
@@ -182,7 +182,7 @@ Middle 2 - After the "Completed" option is pressed
 
 End - After the delete all button is pressed
 
-![Task 6 End](./img/task6end.jpg)
+![Task 6 End](./img/lab2/task6end.jpg)
 
 Challenges
 ----------

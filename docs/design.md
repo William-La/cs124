@@ -3,23 +3,31 @@ Devika Mehr and William La
 
 CS124 Section 1
 
-[Link to index page](https://github.com/devikamehr/cs124/blob/lab1/index.html)
+[Link to deployed app](https://william-la.github.io/cs124/)
 
 Oct. 14th 2021
 
 Design Decisions and Rationale
 ------------------------------
-For this lab, we decided to follow through with most of the design choices we made in lab 1. This is because we enjoyed our design and also believed it would be good practice to learn how to link everything with React. It was also convenient to pull from our existing CSS file. 
+For this lab, we decided to follow through with most of the design choices we made in lab 1. This is because we enjoyed our design and also believed it would be good practice to le33arn how to link everything with React. It was also convenient to pull from our existing CSS file. 
+
 A design decision that differed from our first lab was the flow of our task filter action. We previously had a filter icon that displayed a menu when it was clicked. The menu would stay on the screen to display the state of the filter.
 
+#### Old Filter
 ![Old Filter](./img/oldFilter.jpg)
 
 One of our user testers mentioned that it was hard to understand what the icon was and, after a bit of deliberation, we agreed that our lab 1 approach was clunky and unintuitive. Instead, we decided on a simple dropdown menu. We believe that a dropdown menu is a great approach because it is intuitive and displays the state of the filter without taking up additional space. 
 
+#### New Filter
 ![New Filter Initial](./img/newFilterInitial.png)
 ![New Filter](./img/newFilter.png)
 
-We also wanted to keep the visual cue that when you “check off a task” the task text also gets crossed off. Also, when you edit a pre-existing task, the placeholder text in our modal is the current task’s text. 
+Another design decision we made was in the flow of creating a new task. Our previous approach took our users to a new task creation page whenever they pressed the plus button in the bottom right of the screen. 
+
+#### Old Task Creation
+![Old Task Creation](./img/oldTaskCreation.jpg)
+
+Rather than take our user to a new screen, we decided to prompt our users with a modal when they want to create a new task. We felt that this modal approach gave our users a more seamless experience 
 
 [OLD]
 
@@ -58,10 +66,11 @@ We initially thought that this select all feature could help users select a scre
 
 User Testing
 ------------
-We had one user go through the application and she gave great feedback on two key parts. She mentioned that removing the text was a good idea as it can create feelings to “rush” through tasks to receive a message. When we told her that we used to have a message that said “Oh no! No more tasks to do” she mentioned that any text could make a user more anxious about their productivity. Therefore, we decided to remove the text altogether. Then, she mentioned that the filter icon was a bit confusing and did not look like something she would obviously tap at first glance. When I mentioned we were thinking about using a dropdown, she agreed that a dropdown is more obvious to a user than there are options hidden below. 
+We had one user go through the application and she gave great feedback on two key parts. She mentioned that removing the positive empty list text was a good idea as it can create feelings to “rush” through tasks to receive a message. When we told her that we used to have a message that said “Oh no! No more tasks to do” she mentioned that any text could make a user more anxious about their productivity. Therefore, we decided to remove the text altogether. Then, she mentioned that the filter icon was a bit confusing and did not look like something she would obviously tap at first glance. When I mentioned we were thinking about using a dropdown, she agreed that a dropdown is more obvious to a user than there are options hidden below. 
 
 Another user who went through our todo list spotted an error within our implementation of our task dropdown icons. We intially had the position of the dropdown icons set to 'fixed'; however, this led to unexpected behavior when users scrolled through our app. The dropdown icon would be fixed on the user's screen, which made it stay on screen while its associated task scrolled off.
 
+#### Broken Dropdown
 ![Broken Dropdown](./img/brokenDropdown.png)
 
 We're thankful that our user pointed out this bug and were able to make the appropriate fixes to the CSS.

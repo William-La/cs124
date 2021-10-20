@@ -80,6 +80,7 @@ function App() {
         ])
     }
     // Changes the value of completed when a user checks off something.
+    // Hi delete this. 
     function handleCompleted(id) {
         setData( data.map(
             task => task.id !== id

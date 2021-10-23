@@ -72,7 +72,7 @@ const StyledMenu = styled((props) => (
         };
         // Allows us to edit the Modal.
         function handleEdit(input) {
-          props.onFieldChange(props.id, "title", input);
+          props.onEditTask(props.id, input);
           handleModalClose();
         }
       
@@ -119,7 +119,6 @@ const StyledMenu = styled((props) => (
             </StyledMenu>
             {/* Creates a Modal component to edit a task. */}
             <OurModal open={modalOpen}
-              onClose={handleModalClose}
               placeholder={props.title}
               modalText={"Please edit task"}
               handleAction={handleEdit}

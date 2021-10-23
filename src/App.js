@@ -57,9 +57,9 @@ function App() {
             return {...doc.data()}});
     }
     // An effect to ensure our updated filters work.
-    // useEffect(() => {
-    //     filterHandler();
-    //   }, [data, view]);
+    useEffect(() => {
+        filterHandler();
+      }, [view]);
     
 
     function handleView(value) {
@@ -67,19 +67,19 @@ function App() {
     }
 
     // Switches between the different cases a todo task could be.
-    // const filterHandler = () => {
-    //     switch(view) {
-    //       case "completed":
-    //         setFilteredTodos(data.filter((task) => task.completed === true));
-    //         break;
-    //       case "uncompleted":
-    //         setFilteredTodos(data.filter((task) => task.completed === false));
-    //         break;
-    //       default:
-    //         setFilteredTodos(data);
-    //         break;
-    //     }
-    //   };
+    const filterHandler = () => {
+        switch(view) {
+          case "completed":
+            setFilteredTodos(tasks.filter((task) => task.completed === true));
+            break;
+          case "uncompleted":
+            setFilteredTodos(tasks.filter((task) => task.completed === false));
+            break;
+          default:
+            setFilteredTodos(tasks);
+            break;
+        }
+      };
 
     // Deletes ALL tasks.
     function handleDeleteAll(tasks) {
@@ -106,25 +106,31 @@ function App() {
         })
     }
     // Edits a task value.
-    function handleFieldChange(id, field, value) {
-        // setData( data.map(
-        //     task => task.id !== id
-        //     ? task
-        //     : {...task, ["title"]: value}))
+    function handleComplete(id, value) {
         const doc = db.collection(name).doc(id);
         doc.update({
-            [field]: value,
+            ["completed"]: value,
+        })
+
+    }
+
+    function handleEditTask(id, value) {
+        const doc = db.collection(name).doc(id);
+        doc.update({
+            ["title"]: value,
         })
     }
 
     return <div>
+
         <Header view={handleView}/>
         {loading && <h1>Loading</h1>}
         {tasks && <List 
                 list={tasks}
                 onNewTask={handleNewTask}
-                onFieldChange={handleFieldChange}
-                filteredTodos={null}
+                onComplete={handleComplete}
+                onEditTask={handleEditTask}
+                filteredTodos={filteredTodos}
                 onDeleteTask={handleDeleteTask}
                 onDeleteAll={handleDeleteAll}
                 view={view}

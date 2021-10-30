@@ -19,11 +19,7 @@ function List(props) {
     
     return <div>
         <div class="todo-body">
-            {/* Filters and checks which tasks should render depending on Completion value. */}
-            {props.filteredTodos ? 
-            props.filteredTodos.map(a => <Task  a={a}  key={a.id} onCompleted={props.onComplete} onEditTask={props.onEditTask} onDeleteTask={props.onDeleteTask}/>) :
-            // <div></div>:
-            props.list.map(a => <Task  a={a} key={a.id} onCompleted={props.onComplete} onEditTask={props.onEditTask}  onDeleteTask={props.onDeleteTask}/>)}
+            {props.list.map(a => <Task  a={a} key={a.id} onCompleted={props.onComplete} onEditTask={props.onEditTask}  onDeleteTask={props.onDeleteTask}/>)}
             {/* Different values have different actions for our circle button at the bottom. */}
             {props.view === "completed" ?
             <RemoveCircleIcon style={{fontSize:"150px",
@@ -31,7 +27,7 @@ function List(props) {
                                         gridRow: "9/ span 1",
                                         marginLeft: "750px",
                                         }} 
-            onClick={() => props.onDeleteAll(props.filteredTodos)}/>
+            onClick={() => props.onDeleteAll(props.list)}/>
             :
             <AddCircleIcon style={{fontSize:"150px",
                                     gridColumn: "1/ span 1",

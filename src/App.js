@@ -19,33 +19,9 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-// const initialData = [
-//     {
-//         id: "0",
-//         title: "William spills the tea",
-//         completed: false
-//     },
-//     {
-//         id: "1",
-//         title: "Complete 124 lab",
-//         completed: true
-//     },
-//     {
-//         id: "2",
-//         title: "Grab dinner with 121",
-//         completed: false
-//     },
-//     {
-//         id: "3",
-//         title: "Rename ourselves",
-//         completed: false
-//     },
-// ];
-
 
 const name = "william-la-tasks";
 function App() {
-    // const [data, setData] = useState(initialData);
     const [view, setView] = useState('all');
     const query = db.collection(name);
     const [value, loading, error] = useCollection(query);
@@ -55,51 +31,30 @@ function App() {
         setView(value);
     }
 
-    // Switches between the different cases a todo task could be.
-    // const filterHandler = () => {
-    //     switch(view) {
-    //       case "completed":
-    //         setFilteredTodos(tasks.filter((task) => task.completed === true));
-    //         break;
-    //       case "uncompleted":
-    //         setFilteredTodos(tasks.filter((task) => task.completed === false));
-    //         break;
-    //       default:
-    //         setFilteredTodos(tasks);
-    //         break;
-    //     }
-    //   };
-    let tasks = null;
-    if (value) {
+    function getTasks() {
         switch(view) {
-            // case "completed":
-            //     tasks = value.docs.filter((doc) => {doc.data().completed}).map((doc) => {return {...doc.data()}});
-            //     break;
-            // case "uncompleted":
-            //     // tasks = value.docs.filter((doc) => {
-            //     //     return {...(!doc.data().completed ? {...doc.data()} : null)}});
-            //     tasks = value.docs.filter((doc) => {!doc.data().completed}).map((doc) => {return {...doc.data()}});
-            //     break;
+            case "completed":
+                return value.docs.filter((doc) => doc.data().completed).map((doc) => {
+                    return {...doc.data()}
+                });
+            case "uncompleted":
+                return value.docs.filter((doc) => !doc.data().completed).map((doc) => {
+                    return {...doc.data()}
+                });
             default:
-                tasks = value.docs.map((doc) => {
-                    return {...doc.data()}});
-                break;
+                return value.docs.map((doc) => doc.data());
         }
     }
 
-    // // An effect to ensure our updated filters work.
-    // useEffect(() => {
-    //     filterHandler();
-    //   }, [view]);
-    // //   [tasks, view]
-    
-    
-
+    let tasks = null;
+    if (value) {
+        tasks = getTasks()
+    }
 
     // Deletes ALL tasks.
-    function handleDeleteAll(tasks) {
+    function handleDeleteAll(completedTasks) {
         // setData(data.filter(task => !(tasks.includes(task))))
-        tasks.map((task) => handleDeleteTask(task.id));
+        completedTasks.map((task) => handleDeleteTask(task.id));
 
     }
     // Only deletes one task.

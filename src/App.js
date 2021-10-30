@@ -47,12 +47,8 @@ const name = "william-la-tasks";
 function App() {
     // const [data, setData] = useState(initialData);
     const [view, setView] = useState('all');
-    // var [filteredTodos, setFilteredTodos] = useState(null);
-
     const query = db.collection(name);
     const [value, loading, error] = useCollection(query);
-    let tasks =  null;
-    const filteredArray = [];
 
 
     function handleView(value) {
@@ -73,25 +69,23 @@ function App() {
     //         break;
     //     }
     //   };
-    const tryData = async () => {
-        const filteredTodos =  await taskRef.where("completed", "==", true).get();
-        
-            filteredTodos.forEach(doc => {
-                filteredArray.push(doc.data());
-                // console.log(doc.id,  '=>', doc.data());
-            })
-            console.log(filteredArray);
-
-
-    }
-    const taskRef = db.collection(name);
+    let tasks = null;
     if (value) {
-        tasks = value.docs.map((doc) => {
-            return {...doc.data()}});
-            //setFilteredTodos(tasks.filter((task) => task.completed === true));
-            tryData();
+        switch(view) {
+            // case "completed":
+            //     tasks = value.docs.filter((doc) => {doc.data().completed}).map((doc) => {return {...doc.data()}});
+            //     break;
+            // case "uncompleted":
+            //     // tasks = value.docs.filter((doc) => {
+            //     //     return {...(!doc.data().completed ? {...doc.data()} : null)}});
+            //     tasks = value.docs.filter((doc) => {!doc.data().completed}).map((doc) => {return {...doc.data()}});
+            //     break;
+            default:
+                tasks = value.docs.map((doc) => {
+                    return {...doc.data()}});
+                break;
+        }
     }
-
 
     // // An effect to ensure our updated filters work.
     // useEffect(() => {
@@ -161,7 +155,6 @@ function App() {
                 onNewTask={handleNewTask}
                 onComplete={handleComplete}
                 onEditTask={handleEditTask}
-                filteredTodos={filteredArray}
                 onDeleteTask={handleDeleteTask}
                 onDeleteAll={handleDeleteAll}
                 view={view}

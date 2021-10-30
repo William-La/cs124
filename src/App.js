@@ -5,6 +5,7 @@ import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import { useState, useEffect } from 'react';
 import firebase from "firebase/compat";
 import {useCollection} from "react-firebase-hooks/firestore";
+import { filter } from "dom-helpers";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCcQ6XCOvMIA7pHME4bWBgy_7OVy_7XErA",
@@ -46,45 +47,66 @@ const name = "william-la-tasks";
 function App() {
     // const [data, setData] = useState(initialData);
     const [view, setView] = useState('all');
-    const [filteredTodos, setFilteredTodos] = useState(null);
+    // var [filteredTodos, setFilteredTodos] = useState(null);
 
     const query = db.collection(name);
     const [value, loading, error] = useCollection(query);
-    
-    let tasks = null;
-    if (value) {
-        tasks = value.docs.map((doc) => {
-            return {...doc.data()}});
-    }
-    // An effect to ensure our updated filters work.
-    useEffect(() => {
-        filterHandler();
-      }, [view]);
-    
+    let tasks =  null;
+    const filteredArray = [];
+
 
     function handleView(value) {
         setView(value);
     }
 
     // Switches between the different cases a todo task could be.
-    const filterHandler = () => {
-        switch(view) {
-          case "completed":
-            setFilteredTodos(tasks.filter((task) => task.completed === true));
-            break;
-          case "uncompleted":
-            setFilteredTodos(tasks.filter((task) => task.completed === false));
-            break;
-          default:
-            setFilteredTodos(tasks);
-            break;
-        }
-      };
+    // const filterHandler = () => {
+    //     switch(view) {
+    //       case "completed":
+    //         setFilteredTodos(tasks.filter((task) => task.completed === true));
+    //         break;
+    //       case "uncompleted":
+    //         setFilteredTodos(tasks.filter((task) => task.completed === false));
+    //         break;
+    //       default:
+    //         setFilteredTodos(tasks);
+    //         break;
+    //     }
+    //   };
+    const tryData = async () => {
+        const filteredTodos =  await taskRef.where("completed", "==", true).get();
+        
+            filteredTodos.forEach(doc => {
+                filteredArray.push(doc.data());
+                // console.log(doc.id,  '=>', doc.data());
+            })
+            console.log(filteredArray);
+
+
+    }
+    const taskRef = db.collection(name);
+    if (value) {
+        tasks = value.docs.map((doc) => {
+            return {...doc.data()}});
+            //setFilteredTodos(tasks.filter((task) => task.completed === true));
+            tryData();
+    }
+
+
+    // // An effect to ensure our updated filters work.
+    // useEffect(() => {
+    //     filterHandler();
+    //   }, [view]);
+    // //   [tasks, view]
+    
+    
+
 
     // Deletes ALL tasks.
     function handleDeleteAll(tasks) {
         // setData(data.filter(task => !(tasks.includes(task))))
         tasks.map((task) => handleDeleteTask(task.id));
+
     }
     // Only deletes one task.
     function handleDeleteTask(id) {
@@ -104,14 +126,23 @@ function App() {
             title: value,
             completed: false,
         })
+
+    }
+
+    function handleEdit(id, field, value) {
+        const doc = db.collection(name).doc(id);
+        doc.update({
+            [field]: value,
+        })
+
     }
     // Edits a task value.
     function handleComplete(id, value) {
+        handleEdit(id, "completed", value);
         const doc = db.collection(name).doc(id);
         doc.update({
             ["completed"]: value,
         })
-
     }
 
     function handleEditTask(id, value) {
@@ -130,7 +161,7 @@ function App() {
                 onNewTask={handleNewTask}
                 onComplete={handleComplete}
                 onEditTask={handleEditTask}
-                filteredTodos={filteredTodos}
+                filteredTodos={filteredArray}
                 onDeleteTask={handleDeleteTask}
                 onDeleteAll={handleDeleteAll}
                 view={view}

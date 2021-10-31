@@ -49,7 +49,41 @@ export default function OurModal(props) {
                   onChange={handleChange}/>
           
           </label>
-        <input id="submitButton" type="submit" value="Submit" />
+        {/* <input id="submitButton" type="submit" value="Submit" /> */}
+        </form>
+        {/* Adding stuff here for priority!!!!!!!!!!!!!!!!!!!!! HELLO!!! */}
+        <Typography id="modal-modal-priority" variant="h5" component="h2">
+            Please select a Priority
+          </Typography>
+        <form onSubmit={() => {props.handleAction(input); setInput('');}}> 
+          <label>
+          {/* Changes text depending on the actions (editing or deleting) */}
+          <input id="priValueHigh" 
+                  type="radio" 
+                  placeholder={props.placeholder} 
+                  ref={inputTask} 
+                  value={input} 
+                  onChange={handleChange}/>
+            <label for="priValueHigh">High</label><br></br>
+            <input id="priValueMedium" 
+                  type="radio" 
+                  placeholder={props.placeholder} 
+                  ref={inputTask} 
+                  value={input} 
+                  onChange={handleChange}/>
+            <label for="priValueMedium">Medium</label><br></br>
+            <input id="priValueLow" 
+                  type="radio" 
+                  maxlength = "30"
+                  placeholder={props.placeholder} 
+                  ref={inputTask} 
+                  value={input} 
+                  onChange={handleChange}/>
+            <label for="priValueLow">Low</label><br></br>
+          
+          </label>
+          <input id="submitButton" type="submit" value="Submit" />
+
         </form>
 
         </Box>

@@ -7,8 +7,9 @@
 }
 
 #title {
-    font-size: 10em;
+    font-size: 9em;
     padding-left: 30px;
+    margin-top: 53px;
 }
 
 FilterListIcon {
@@ -17,6 +18,10 @@ FilterListIcon {
     padding-top: 135px;
     padding-left: 285px;
 
+}
+
+.sort {
+    padding-left: 141px;
 }
 
 .MuiBox-root css-ece9u5 {

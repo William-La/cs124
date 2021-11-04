@@ -3,25 +3,24 @@
     flex-wrap: wrap;
     background-color: #AF92C8;
     grid-column: 1 / 6;
-    /* padding: 15px; */
 }
 
 #title {
-    font-size: 9em;
-    padding-left: 30px;
-    margin-top: 53px;
+    font-size: 10em;
+    padding-left: 48px;
+    margin-top: 72px;
 }
 
-FilterListIcon {
-    display: inline;
-    font-size: 150px;
-    padding-top: 135px;
-    padding-left: 285px;
-
+.view {
+    position: relative;
+    padding-left: 50px;
+    bottom: 55px
 }
 
 .sort {
-    padding-left: 141px;
+    position: relative;
+    padding-left: 100px;
+    bottom: 55px
 }
 
 .MuiBox-root css-ece9u5 {

@@ -27,17 +27,13 @@ function List(props) {
                                         gridRow: "9/ span 1",
                                         marginLeft: "750px",
                                         }} 
-            onClick={() => props.onDeleteAll(props.list)}/>
-            :
+                              onClick={() => props.onDeleteAll(props.list)}/>:
             <AddCircleIcon style={{fontSize:"150px",
                                     gridColumn: "1/ span 1",
                                     gridRow: "9/ span 1",
                                     marginLeft: "750px",
                                     }} 
-            
-            onClick={handleOpen}/>
-            }
-            
+                           onClick={handleOpen}/>}
             <div>
               {/* Creates a Modal to add a new task. */}
               <OurModal 
@@ -46,9 +42,9 @@ function List(props) {
                 modalText={"Please enter a new task"}
                 handleAction={handleSubmit}
               />
+      </div>
     </div>
-    </div>
-    </div>
+  </div>
 
 }
 

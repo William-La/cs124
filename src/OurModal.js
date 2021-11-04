@@ -20,20 +20,21 @@ const style = {
 
 };
 
-
 export default function OurModal(props) {
   const [input, setInput] = useState(''); 
   const [priority, setPriority] = useState('2');
   const inputTask = useRef(null);
+
   function handleChange(e) {
       setInput(e.target.value);
   }
+
     return (
       // Creates a Modal for inputting new values.
       <Modal
-      open={props.open}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description">
+        open={props.open}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description">
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h5" component="h2">
             {props.modalText}
@@ -46,17 +47,15 @@ export default function OurModal(props) {
                   maxlength = "30"
                   placeholder={props.placeholder} 
                   ref={inputTask} 
-                  value={input} 
-
+                  value={input}
                   onChange={handleChange}/>
-          
           </label>
-        {/* <input id="submitButton" type="submit" value="Submit" /> */}
-        {/* Adding stuff here for priority!!!!!!!!!!!!!!!!!!!!! HELLO!!! */}
+          
+        {/* Priority implementation */}
         <Typography id="modal-modal-priority" variant="h5" component="h2">
             Please select a Priority
-          </Typography>
-        {/* <form onSubmit={() => {props.handleAction(input); setInput('');}}>  */}
+        </Typography>
+          
           <label>
           {/* Changes text depending on the actions (editing or deleting) */}
           <br/>
@@ -66,9 +65,7 @@ export default function OurModal(props) {
                   value={'3'}
                   checked={priority === '3'}
                   onChange={ e => setPriority(e.currentTarget.value)
-                  }
-
-                  />
+                  }/>
 
             <label for="priValueHigh">High</label><br></br>
             <input id="priValueMedium" 
@@ -76,9 +73,8 @@ export default function OurModal(props) {
                   type="radio" 
                   value={'2'}
                   checked={priority === '2'}
-                  onChange={ e => setPriority(e.currentTarget.value)}
+                  onChange={ e => setPriority(e.currentTarget.value)}/>
 
-                  />
             <label for="priValueMedium">Medium</label><br></br>
             <input id="priValueLow"
                   name="priority" 
@@ -88,13 +84,12 @@ export default function OurModal(props) {
                   onChange={ (e) => {e.preventDefault(); setPriority(e.currentTarget.value);}}
                   />
             <label for="priValueLow">Low</label><br></br>
-          
           </label>
+          <br/>
+
           <input id="submitButton" type="submit" value="Submit" />
-
         </form>
-
-        </Box>
+      </Box>
     </Modal>
     );
 }

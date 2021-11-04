@@ -2,10 +2,9 @@ import React from "react";
 import Header from './Header';
 import List from './List';
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import firebase from "firebase/compat";
 import {useCollection} from "react-firebase-hooks/firestore";
-import { filter } from "dom-helpers";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCcQ6XCOvMIA7pHME4bWBgy_7OVy_7XErA",
@@ -23,8 +22,7 @@ const db = firebase.firestore();
 const name = "william-la-tasks";
 function App() {
     const [view, setView] = useState('all');
-    const [sort, setSort] = useState('date')
-    // const query = db.collection(name)
+    const [sort, setSort] = useState('date');
     const query = sortQuery();
     const [value, loading, error] = useCollection(query);
 
@@ -66,7 +64,6 @@ function App() {
     }
     // Deletes ALL tasks.
     function handleDeleteAll(completedTasks) {
-        // setData(data.filter(task => !(tasks.includes(task))))
         completedTasks.map((task) => handleDeleteTask(task.id));
 
     }
@@ -74,16 +71,10 @@ function App() {
     
     // Only deletes one task.
     function handleDeleteTask(id) {
-        // setData(data.filter(task => task.id !== id))
         db.collection(name).doc(id).delete();
     }
     // Adds a new task to our data.
     function handleNewTask(value, priority) {
-        // setData([...data, {
-        //     id: generateUniqueID(),
-        //     title: value,
-        //     completed: false
-        // }])
         const newId = generateUniqueID();
         db.collection(name).doc(newId).set({
             id: newId,
@@ -93,9 +84,9 @@ function App() {
             date: Date().toLocaleString()
             
         })
-
     }
 
+    // Edits a task value.
     function handleEdit(id, field, value) {
         const doc = db.collection(name).doc(id);
         doc.update({
@@ -103,7 +94,7 @@ function App() {
         })
 
     }
-    // Edits a task value.
+    
     function handleComplete(id, value) {
         handleEdit(id, "completed", value);
         const doc = db.collection(name).doc(id);
@@ -122,7 +113,6 @@ function App() {
 
 
     return <div>
-
         <Header view={handleView} sort={handleSort}/>
         {loading && <h1>Loading</h1>}
         {tasks && <List 

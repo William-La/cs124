@@ -18,7 +18,7 @@ function Task(props) {
     return <div>
         <div class="todo-task" id={props.id}>
             
-            <Checkbox priority={priorityColor(props.priority)} completed={props.completed} onCompleted={() => props.onEdit(props.id, "completed", !props.completed)}/>
+            <Checkbox priorityColor={priorityColor(props.priority)} completed={props.completed} onCompleted={() => props.onEdit(props.id, "completed", !props.completed)}/>
             
             <div class="todo-item" style={{backgroundColor: priorityColor(props.priority)}}>
                 

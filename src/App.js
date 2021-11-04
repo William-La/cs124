@@ -70,6 +70,8 @@ function App() {
         completedTasks.map((task) => handleDeleteTask(task.id));
 
     }
+
+    
     // Only deletes one task.
     function handleDeleteTask(id) {
         // setData(data.filter(task => task.id !== id))
@@ -117,6 +119,7 @@ function App() {
             ["priority"]: priority
         })
     }
+
 
     return <div>
 

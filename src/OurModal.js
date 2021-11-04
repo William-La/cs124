@@ -53,7 +53,7 @@ export default function OurModal(props) {
           {/* Changes text depending on the actions (editing or deleting) */}
           <input id="inputText" 
                   type="text" 
-                  maxlength = "30"
+                  maxlength = "20"
                   placeholder={props.placeholder} 
                   ref={inputTask} 
                   value={input}
@@ -92,7 +92,7 @@ export default function OurModal(props) {
                   />
             <label for="priValueLow">Low</label><br></br>
           <br/>
-          <input id="submitButton" type="submit" value="Submit" />
+          <input id="submitButton" type="submit" value={props.submitText} />
       </form>
     </Box>
   </Modal>

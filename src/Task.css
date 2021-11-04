@@ -8,7 +8,6 @@
 
 }
 
-
 .todo-item {
     background-color: #ded9cd;
     grid-column: 2/ span 1;
@@ -32,7 +31,6 @@
     padding-bottom: 10px;
     padding-right: 310px;
 }
-
 
 #complete {
     text-decoration: line-through;

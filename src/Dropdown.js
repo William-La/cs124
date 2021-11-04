@@ -125,6 +125,7 @@ const StyledMenu = styled((props) => (
               priority={props.priority}
               modalText={"Please edit task"}
               handleAction={handleEdit}
+              submitText={"Update Task"}
             />
           </div>
         );

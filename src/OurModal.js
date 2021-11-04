@@ -23,6 +23,7 @@ const style = {
 
 export default function OurModal(props) {
   const [input, setInput] = useState(''); 
+  const [priority, setPriority] = useState('2');
   const inputTask = useRef(null);
   function handleChange(e) {
       setInput(e.target.value);
@@ -37,7 +38,7 @@ export default function OurModal(props) {
           <Typography id="modal-modal-title" variant="h5" component="h2">
             {props.modalText}
           </Typography>
-          <form onSubmit={() => {props.handleAction(input); setInput('');}}> 
+          <form onSubmit={() => {props.handleAction(input, priority); setInput(''); setPriority('2');}}> 
           <label>
           {/* Changes text depending on the actions (editing or deleting) */}
           <input id="inputText" 
@@ -46,39 +47,46 @@ export default function OurModal(props) {
                   placeholder={props.placeholder} 
                   ref={inputTask} 
                   value={input} 
+
                   onChange={handleChange}/>
           
           </label>
         {/* <input id="submitButton" type="submit" value="Submit" /> */}
-        </form>
         {/* Adding stuff here for priority!!!!!!!!!!!!!!!!!!!!! HELLO!!! */}
         <Typography id="modal-modal-priority" variant="h5" component="h2">
             Please select a Priority
           </Typography>
-        <form onSubmit={() => {props.handleAction(input); setInput('');}}> 
+        {/* <form onSubmit={() => {props.handleAction(input); setInput('');}}>  */}
           <label>
           {/* Changes text depending on the actions (editing or deleting) */}
+          <br/>
           <input id="priValueHigh" 
+                  name="priority"
                   type="radio" 
-                  placeholder={props.placeholder} 
-                  ref={inputTask} 
-                  value={input} 
-                  onChange={handleChange}/>
+                  value={'3'}
+                  checked={priority === '3'}
+                  onChange={ e => setPriority(e.currentTarget.value)
+                  }
+
+                  />
+
             <label for="priValueHigh">High</label><br></br>
             <input id="priValueMedium" 
+                  name="priority"
                   type="radio" 
-                  placeholder={props.placeholder} 
-                  ref={inputTask} 
-                  value={input} 
-                  onChange={handleChange}/>
+                  value={'2'}
+                  checked={priority === '2'}
+                  onChange={ e => setPriority(e.currentTarget.value)}
+
+                  />
             <label for="priValueMedium">Medium</label><br></br>
-            <input id="priValueLow" 
+            <input id="priValueLow"
+                  name="priority" 
                   type="radio" 
-                  maxlength = "30"
-                  placeholder={props.placeholder} 
-                  ref={inputTask} 
-                  value={input} 
-                  onChange={handleChange}/>
+                  value={'1'}
+                  checked={priority === '1'}
+                  onChange={ (e) => {e.preventDefault(); setPriority(e.currentTarget.value);}}
+                  />
             <label for="priValueLow">Low</label><br></br>
           
           </label>

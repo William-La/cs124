@@ -12,8 +12,8 @@ function List(props) {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    function handleSubmit(input) {
-      props.onNewTask(input);
+    function handleSubmit(input, priority) {
+      props.onNewTask(input, priority);
       handleClose();
   }
     

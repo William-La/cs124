@@ -23,12 +23,26 @@ const db = firebase.firestore();
 const name = "william-la-tasks";
 function App() {
     const [view, setView] = useState('all');
-    const query = db.collection(name);
+    const [sort, setSort] = useState('date')
+    // const query = db.collection(name)
+    const query = sortQuery();
     const [value, loading, error] = useCollection(query);
 
+    function sortQuery() {
+        switch(sort) {
+            case "title":
+                return db.collection(name).orderBy(sort, 'asc');
+            default:
+                return db.collection(name).orderBy(sort, 'desc');
+        }
+    }
 
     function handleView(value) {
         setView(value);
+    }
+
+    function handleSort(value) {
+        setSort(value);
     }
 
     function getTasks() {
@@ -50,7 +64,6 @@ function App() {
     if (value) {
         tasks = getTasks()
     }
-
     // Deletes ALL tasks.
     function handleDeleteAll(completedTasks) {
         // setData(data.filter(task => !(tasks.includes(task))))
@@ -63,7 +76,7 @@ function App() {
         db.collection(name).doc(id).delete();
     }
     // Adds a new task to our data.
-    function handleNewTask(value) {
+    function handleNewTask(value, priority) {
         // setData([...data, {
         //     id: generateUniqueID(),
         //     title: value,
@@ -74,6 +87,9 @@ function App() {
             id: newId,
             title: value,
             completed: false,
+            priority: priority,
+            date: Date().toLocaleString()
+            
         })
 
     }
@@ -94,16 +110,17 @@ function App() {
         })
     }
 
-    function handleEditTask(id, value) {
+    function handleEditTask(id, value, priority) {
         const doc = db.collection(name).doc(id);
         doc.update({
             ["title"]: value,
+            ["priority"]: priority
         })
     }
 
     return <div>
 
-        <Header view={handleView}/>
+        <Header view={handleView} sort={handleSort}/>
         {loading && <h1>Loading</h1>}
         {tasks && <List 
                 list={tasks}

@@ -71,8 +71,8 @@ const StyledMenu = styled((props) => (
           setAnchorEl(null);
         };
         // Allows us to edit the Modal.
-        function handleEdit(input) {
-          props.onEditTask(props.id, input);
+        function handleEdit(input, priority) {
+          props.onEditTask(props.id, input, priority);
           handleModalClose();
         }
       

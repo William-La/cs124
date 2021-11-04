@@ -19,7 +19,7 @@ function capitalize(str){
   }
 function Header(props) {
    
-    function DropDown(title, itemOne, itemTwo, itemThree) {
+    function DropDown(title, itemOne, itemTwo, itemThree, action) {
 
         return (
             <div class="dropdown" style={style}>
@@ -29,7 +29,7 @@ function Header(props) {
                   {title}
                 </InputLabel>
                 <NativeSelect
-                onChange={(e) => props.view(e.target.value)}
+                onChange={(e) => action(e.target.value)}
                   defaultValue={0}
                   inputProps={{
                     type: 'view',
@@ -49,8 +49,8 @@ function Header(props) {
     return <div>
         <div class="header">
             <h1 id="title">To do</h1>
-            <div class="view">{DropDown("View", "all", "Completed", "Uncompleted")}</div>
-            <div class="sort">{DropDown("Sort", "Priority", "Name", "Date")}</div>
+            <div class="view">{DropDown("View", "all", "completed", "uncompleted", props.view)}</div>
+            <div class="sort">{DropDown("Sort", "date", "title", "priority", props.sort)}</div>
             
          </div>
     </div>

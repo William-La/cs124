@@ -36,10 +36,10 @@ function App() {
 
     function sortQuery() {
         switch(sort) {
-            case "title":
-                return db.collection(name).orderBy(sort, 'asc');
-            default:
+            case "priority":
                 return db.collection(name).orderBy(sort, 'desc');
+            default:
+                return db.collection(name).orderBy(sort, 'asc');
         }
     }
 

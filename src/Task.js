@@ -28,7 +28,7 @@ function Task(props) {
                 
                 {/* Adds the dropdown box to edit and delete per task. */}
                 <div class="todo-edit">
-                <Dropdown class="dropdown-bar" id={props.id} title={props.title} onDeleteTask={() => props.onDeleteTask(props.id)} onEdit={props.onEdit}/>
+                <Dropdown class="dropdown-bar" priority={props.priority} id={props.id} title={props.title} onDeleteTask={() => props.onDeleteTask(props.id)} onEdit={props.onEdit}/>
                 </div>
 
             </div>

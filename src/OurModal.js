@@ -21,10 +21,19 @@ const style = {
 };
 
 export default function OurModal(props) {
-  const [input, setInput] = useState(''); 
-  const [priority, setPriority] = useState('2');
+  const [input, setInput] = useState(props.title); 
+  const [priority, setPriority] = useState(props.priority);
   const inputTask = useRef(null);
 
+  function handleSubmit() {
+    props.handleAction(input, priority);
+
+    // if we created a new task (not editing an existing one) reset input field
+    if (props.newItem) {
+      setInput('');
+      setPriority('2');
+    }
+  }
   function handleChange(e) {
       setInput(e.target.value);
   }
@@ -39,7 +48,7 @@ export default function OurModal(props) {
         <Typography id="modal-modal-title" variant="h5" component="h2">
           {props.modalText}
         </Typography>
-        <form onSubmit={() => {props.handleAction(input, priority); setInput(''); setPriority('2');}}> 
+        <form onSubmit={handleSubmit}> 
           <label>
           {/* Changes text depending on the actions (editing or deleting) */}
           <input id="inputText" 
@@ -50,14 +59,13 @@ export default function OurModal(props) {
                   value={input}
                   onChange={handleChange}/>
           </label>
-          
+        <br/>
         {/* Priority implementation */}
         <Typography id="modal-modal-priority" variant="h5" component="h2">
             Please select a Priority
         </Typography>
           
           {/* Changes text depending on the actions (editing or deleting) */}
-          <br/>
           <input id="priValueHigh" 
                   name="priority"
                   type="radio" 

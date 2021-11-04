@@ -41,6 +41,9 @@ function List(props) {
                 placeholder={"Enter a new task"}
                 modalText={"Please enter a new task"}
                 handleAction={handleSubmit}
+                title=''
+                priority='2'
+                newItem={true}
               />
       </div>
     </div>

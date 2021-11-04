@@ -97,7 +97,7 @@ const StyledMenu = styled((props) => (
                     color: "black"
                 }}>
               </Button>
-              
+
             <StyledMenu
               id="demo-customized-menu"
               MenuListProps={{
@@ -121,7 +121,8 @@ const StyledMenu = styled((props) => (
 
             {/* Creates a Modal component to edit a task. */}
             <OurModal open={modalOpen}
-              placeholder={props.title}
+              title={props.title}
+              priority={props.priority}
               modalText={"Please edit task"}
               handleAction={handleEdit}
             />

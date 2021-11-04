@@ -19,7 +19,7 @@ function List(props) {
     
     return <div>
         <div class="todo-body">
-            {props.list.map(a => <Task  a={a} key={a.id} priority = {a.priority} onCompleted={props.onComplete} onEditTask={props.onEditTask}  onDeleteTask={props.onDeleteTask}/>)}
+            {props.list.map(a => <Task {...a} key={a.id} onEdit={props.onEdit} onDeleteTask={props.onDeleteTask}/>)}
             {/* Different values have different actions for our circle button at the bottom. */}
             {props.view === "completed" ?
             <RemoveCircleIcon style={{fontSize:"150px",

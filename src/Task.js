@@ -16,16 +16,21 @@ function priorityColor(priority) {
 
 function Task(props) {
     return <div>
-        <div class="todo-task" id={props.a}>
+        <div class="todo-task" id={props.id}>
+            
             {/* Checks if a task has to render a checkbox if completed. */}
-            <Checkbox priority={priorityColor(props.priority)} completed={props.a.completed} onCompleted={() => props.onCompleted(props.a.id, !props.a.completed)}/>
+            <Checkbox priority={priorityColor(props.priority)} completed={props.completed} onCompleted={() => props.onEdit(props.id, "completed", !props.completed)}/>
+            
             <div class="todo-item" style={{backgroundColor: priorityColor(props.priority)}}>
+                
                 {/* Checks if a task needs to be crossed out if completed. */}
-                {props.a.completed ? <p class="task-text" id="complete">{props.a.title}</p> : <p class="task-text">{props.a.title}</p>}
+                {props.completed ? <p class="task-text" id="complete">{props.title}</p> : <p class="task-text">{props.title}</p>}
+                
+                {/* Adds the dropdown box to edit and delete per task. */}
                 <div class="todo-edit">
-                    {/* Adds the dropdown box to edit and delete per task. */}
-                <Dropdown class="dropdown-bar" id={props.a.id} title={props.a.title} onDeleteTask={() => props.onDeleteTask(props.a.id)} onEditTask={props.onEditTask}/>
-                </div> 
+                <Dropdown class="dropdown-bar" id={props.id} title={props.title} onDeleteTask={() => props.onDeleteTask(props.id)} onEdit={props.onEdit}/>
+                </div>
+
             </div>
         </div>
     </div>

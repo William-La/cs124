@@ -29,17 +29,17 @@ export default function OurModal(props) {
       setInput(e.target.value);
   }
 
-    return (
-      // Creates a Modal for inputting new values.
-      <Modal
-        open={props.open}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description">
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h5" component="h2">
-            {props.modalText}
-          </Typography>
-          <form onSubmit={() => {props.handleAction(input, priority); setInput(''); setPriority('2');}}> 
+  return (
+    // Creates a Modal for inputting new values.
+    <Modal
+      open={props.open}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description">
+      <Box sx={style}>
+        <Typography id="modal-modal-title" variant="h5" component="h2">
+          {props.modalText}
+        </Typography>
+        <form onSubmit={() => {props.handleAction(input, priority); setInput(''); setPriority('2');}}> 
           <label>
           {/* Changes text depending on the actions (editing or deleting) */}
           <input id="inputText" 
@@ -56,7 +56,6 @@ export default function OurModal(props) {
             Please select a Priority
         </Typography>
           
-          <label>
           {/* Changes text depending on the actions (editing or deleting) */}
           <br/>
           <input id="priValueHigh" 
@@ -84,12 +83,10 @@ export default function OurModal(props) {
                   onChange={ (e) => {e.preventDefault(); setPriority(e.currentTarget.value);}}
                   />
             <label for="priValueLow">Low</label><br></br>
-          </label>
           <br/>
-
           <input id="submitButton" type="submit" value="Submit" />
-        </form>
-      </Box>
-    </Modal>
-    );
+      </form>
+    </Box>
+  </Modal>
+  );
 }

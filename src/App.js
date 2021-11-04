@@ -89,24 +89,9 @@ function App() {
     // Edits a task value.
     function handleEdit(id, field, value) {
         const doc = db.collection(name).doc(id);
+        console.log("editing");
         doc.update({
             [field]: value,
-        })
-    }
-
-    function handleComplete(id, value) {
-        handleEdit(id, "completed", value);
-        const doc = db.collection(name).doc(id);
-        doc.update({
-            ["completed"]: value,
-        })
-    }
-
-    function handleEditTask(id, value, priority) {
-        const doc = db.collection(name).doc(id);
-        doc.update({
-            ["title"]: value,
-            ["priority"]: priority
         })
     }
 
@@ -116,8 +101,7 @@ function App() {
         {tasks && <List 
                 list={tasks}
                 onNewTask={handleNewTask}
-                onComplete={handleComplete}
-                onEditTask={handleEditTask}
+                onEdit={handleEdit}
                 onDeleteTask={handleDeleteTask}
                 onDeleteAll={handleDeleteAll}
                 view={view}

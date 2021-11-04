@@ -72,7 +72,8 @@ const StyledMenu = styled((props) => (
         };
         // Allows us to edit the Modal.
         function handleEdit(input, priority) {
-          props.onEditTask(props.id, input, priority);
+          props.onEdit(props.id, "title", input);
+          props.onEdit(props.id, "priority", priority);
           handleModalClose();
         }
       
@@ -94,9 +95,9 @@ const StyledMenu = styled((props) => (
                     transform: "scale(1.5)",
                     background: "none",
                     color: "black"
-                }}
-            >  
-            </Button>
+                }}>
+              </Button>
+              
             <StyledMenu
               id="demo-customized-menu"
               MenuListProps={{
@@ -105,8 +106,8 @@ const StyledMenu = styled((props) => (
               anchorEl={anchorEl}
               open={open}
               onClose={handleClose}
+              >
 
-            >
               {/* Each action available for the Dropdown */}
               <MenuItem onClick={() => {handleModalOpen(); handleClose()}} disableRipple>
                 <EditIcon />
@@ -117,6 +118,7 @@ const StyledMenu = styled((props) => (
                 Delete
               </MenuItem>
             </StyledMenu>
+
             {/* Creates a Modal component to edit a task. */}
             <OurModal open={modalOpen}
               placeholder={props.title}

@@ -26,6 +26,14 @@ function App() {
     const query = sortQuery();
     const [value, loading, error] = useCollection(query);
 
+    function handleView(value) {
+        setView(value);
+    }
+
+    function handleSort(value) {
+        setSort(value);
+    }
+
     function sortQuery() {
         switch(sort) {
             case "title":
@@ -33,14 +41,6 @@ function App() {
             default:
                 return db.collection(name).orderBy(sort, 'desc');
         }
-    }
-
-    function handleView(value) {
-        setView(value);
-    }
-
-    function handleSort(value) {
-        setSort(value);
     }
 
     function getTasks() {
@@ -60,19 +60,20 @@ function App() {
 
     let tasks = null;
     if (value) {
-        tasks = getTasks()
+        tasks = getTasks();
     }
+
     // Deletes ALL tasks.
     function handleDeleteAll(completedTasks) {
         completedTasks.map((task) => handleDeleteTask(task.id));
 
     }
 
-    
     // Only deletes one task.
     function handleDeleteTask(id) {
         db.collection(name).doc(id).delete();
     }
+
     // Adds a new task to our data.
     function handleNewTask(value, priority) {
         const newId = generateUniqueID();
@@ -81,8 +82,7 @@ function App() {
             title: value,
             completed: false,
             priority: priority,
-            date: Date().toLocaleString()
-            
+            date: Date().toLocaleString()  
         })
     }
 
@@ -92,9 +92,8 @@ function App() {
         doc.update({
             [field]: value,
         })
-
     }
-    
+
     function handleComplete(id, value) {
         handleEdit(id, "completed", value);
         const doc = db.collection(name).doc(id);
@@ -111,7 +110,6 @@ function App() {
         })
     }
 
-
     return <div>
         <Header view={handleView} sort={handleSort}/>
         {loading && <h1>Loading</h1>}
@@ -123,8 +121,8 @@ function App() {
                 onDeleteTask={handleDeleteTask}
                 onDeleteAll={handleDeleteAll}
                 view={view}
-        />
+            />
         }
-        </div>;
+    </div>;
 }
 export default App;

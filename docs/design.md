@@ -130,7 +130,7 @@ Start
 
 ![Task 1 Start](./img/lab3/task1start2.png)
 
-Middle - After the plus button is pressed
+Middle - After the plus button is pressed and fields are filled out
 
 ![Task 1 Middle](./img/lab3/task1middle2.png)
 
@@ -218,17 +218,17 @@ End - After the delete all button is pressed
 ![Task 6 End](./img/lab3/task6endCompletedDelete.png)
 
 ### Additional Sorting
-Here are examples of using the sorting feature of our app. Tasks can be sorted by Date, Name, and Priority.
+Here are examples of using the sorting feature of our app. Users can sort tasks similar to how they can change the view of which kind of tasks appear by interacting with the dropdown at the top right of the screen. Tasks can be sorted by Date, Name, and Priority.
 
-Sorting by Date Created
+Sorting by Date Created. Tasks appear from oldest (top) to newest (bottom)
 
 ![Date Created](./img/lab3/task3middle2.png)
 
-Sorting by Task Name
+Sorting by Task Name. Tasks appear alphabetically from the top down.
 
 ![Task Name](./img/lab3/task3endTitle.png)
 
-Sorting by Task Priority
+Sorting by Task Priority. Higher priority tasks appear first.
 
 ![Task Priority](./img/lab3/task3endPriority.png)
 

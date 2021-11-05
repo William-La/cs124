@@ -9,30 +9,30 @@ Nov. 4th 2021
 
 Design Decisions, Rationale, and Alternative Designs Considered
 ------------------------------
-For this lab, we added two new additions to our UI. First, we added a new dropdown menu that allows a user to select sorting by Date, Name, and Priority. 
+For this lab, we added two new additions to our UI. First, we added a new dropdown menu that allows a user to select sorting by Date, Name, and Priority. We decided that ascending Date and Name in addition to descending Priority was the most intuitive display of the different sorting options.
 
 #### Sorting
-![Sorting](./img/sorting.jpg)
+![Sorting](./img/lab3/sorting.png)
 
 #### Sorting Dropdown
-![Sorting Dropdown](./img/sortingDropdown.jpg)
+![Sorting Dropdown](./img/lab3/sortingDropdown.png)
 
 We decided to add a new dropdown as we already had our filtering function use a dropdown as well. Upon further discussion, we agreed that if users already knew that a dropdown could change the “view” of our ToDo app, then, therefore, we should also use a dropdown to help sort our tasks too. Using a second dropdown also allowed us to refactor our Dropdown.Js file and add props to help with the usability and scalability of the file as well!
 
 We also included radio buttons in our Modal to allow users to create tasks with priority. 
 
 #### New Task Priority
-![Priority](./img/priority.jpg)
+![Priority](./img/lab3/priority.png)
 
 By default, each task is given “medium” priority. It is up to the user to decide if a task should be “High” or “Low’. If they would like to change the priority, they can do so when they edit the task itself.
 
 #### Edit Task Priority
-![Edit Priority](./img/editPriority.jpg)
+![Edit Priority](./img/lab3/priorityEdit.png)
 
 We decided to go with radio buttons so that the user could see all options when they first glance at the modal. We also thought the buttons were concise and also force the user to only pick one option instantly. We also colored the background of the task and checkbox based on the priority of the task itself.
 
 #### Priority Colors
-![Priority Colors](./img/prioritiyColor.jpg)
+![Priority Colors](./img/lab3/priorityColors.png)
 
 For high priority tasks, we gave it a pastel red while lower priority tasks got a pastel green. We agreed that “medium” tasks could get a pastel orange to balance between the red and green. 
 
@@ -59,10 +59,10 @@ Another design decision we made was in the flow of creating a new task. Our prev
 Rather than take our user to a new screen, we decided to prompt our users with a modal when they want to create a new task. We felt that this modal approach gave our users a more seamless experience for task creation. We also extended this modal functionality to our edit tasks, which also used to take users to a new screen. 
 
 #### New Task Creation
-![New Task Creation](./img/newTaskCreation.png)
+![New Task Creation](./img/lab3/task1middle2.png)
 
 #### Edit Task Modal
-![Edit Task](./img/editTask.png)
+![Edit Task](./img/lab3/task3middle.png)
 
 ### Relevant Design Decisions, Alternative Designs, and Rationale From Lab 1
 
@@ -110,7 +110,7 @@ We had one user go through the application and she gave great feedback on two ke
 ![Old Empty Screen](./img/oldEmpty.jpg)
 
 #### New Empty Screen
-![New Empty Screen](./img/newEmpty.png)
+![New Empty Screen](./img/lab3/task1start2.png)
 
 Then, she mentioned that the filter icon was a bit confusing and did not look like something she would obviously tap at first glance. When I mentioned we were thinking about using a dropdown menu, she agreed that a dropdown menu is more obvious to a user as they intuitively know that there are options hidden below. 
 
@@ -123,101 +123,121 @@ We're thankful that our user pointed out this bug and were able to make the appr
 
 Final Design
 ------------
-### Task 1 - In an empty list, create an item named "Buy new John Grisham book"
-Users are presented with an empty list and are able to press the plus button in the lower right of the screen to begin creating a new todo task. When users press the button, a task creation modal appears where they can enter a task title and submit their task by pressing the submit button. Once they submit their task, it is viewable on the main todo page.
+### Task 1 - In an empty list, create an item.
+Users are presented with an empty list and are able to press the plus button in the lower right of the screen to begin creating a new todo task. When users press the button, a task creation modal appears where they can enter a task title and priority level. They submit their task by pressing the "Create Task" button. Once they submit their task, it is viewable on the main todo page and is colored according to the priority level.
 
 Start
 
-![Task 1 Start](./img/lab2/task1start.png)
+![Task 1 Start](./img/lab3/task1start2.png)
 
 Middle - After the plus button is pressed
 
-![Task 1 Middle](./img/lab2/task1middle.png)
+![Task 1 Middle](./img/lab3/task1middle2.png)
 
 End - After the submit button is pressed
 
-![Task 1 End](./img/lab2/task1end.png)
+![Task 1 End](./img/lab3/task1end2.png)
 
-### Task 2 - In a non-empty list, create an item named "Eat Lunch"
-Task 2 is very similar to task 1; however, users start with a non-empty list. Users can press the plus button to create and submit a task. This task appears under the task that was previously there. 
+### Task 2 - In a non-empty list, create an item.
+Task 2 is very similar to task 1; however, users start with a non-empty list. Users can press the plus button to create and submit a task. This task appears according to the current sorting method, which is by default the date created. The app shows the longest outstanding tasks at the top when sorting by date, so a newly created task appears at the bottom of the list. 
 
 Start
 
-![Task 2 Start](./img/lab2/task1end.png)
+![Task 2 Start](./img/lab3/task1end2.png)
 
 Middle - After the plus button is pressed
 
-![Task 2 Middle](./img/lab2/task2middle.png)
+![Task 2 Middle](./img/lab3/task2middle2.png)
+
+Middle pt 2 - Filling out fields
+
+![Task 2 Middle 2](./img/lab3/task2middle3.png)
 
 End - After the submit button is pressed
 
-![Task 2 End](./img/lab2/task2end.png)
+![Task 2 End](./img/lab3/task2end2.png)
 
-### Task 3 - Mark the item named "Call Mom" completed
-Users start with a list of tasks including the "Call Mom" task. They are able to click the empty checkbox next to the task title to complete the task, which visually strikes through the title and adds a check to the checkbox. 
-
-Start
-
-![Task 3 Start](./img/lab2/task3start.png)
-
-End - After the "Call Mom" checkbox is pressed
-
-![Task 3 End](./img/lab2/task3end.png)
-
-### Task 4 - Rename the item "Text John" to "Text John about bank statements"
-Starting with a list including the "Text John" task, users can press the dropdown arrow icon to the right of the task title. Pressing this opens up a menu with two options: "Edit" and "Delete". When users press the "Edit" option, a modal appears where they can enter an updated task title in the text field. Once they edit the task title, they can press the submit button and the item will be updated on the main todo screen. 
+### Task 3 - Mark an item completed
+Users start with a list of tasks including the "Listen to Dua Lipa" task. They are able to click the empty checkbox next to the task title to complete the task, which visually strikes through the title and adds a check to the checkbox. 
 
 Start
 
-![Task 4 Start](./img/lab2/task4start.png)
+![Task 3 Start](./img/lab3/task1end2.png)
 
-Middle 1 - After the dropdown icon is pressed
+End - After the "Listen to Dua Lipa" checkbox is pressed
 
-![Task 4 Middle 1](./img/lab2/task4middle.png)
+![Task 3 End](./img/lab3/task6endCompleted.png)
 
-Middle 2 - After the edit item option is pressed
+### Task 4 - Rename an item and edit priority level
+Starting with a non-empty list, users can press the dropdown arrow icon to the right of the task title. Pressing this opens up a menu with two options: "Edit" and "Delete". When users press the "Edit" option, a modal appears where they can edit the task title in the text field as well as change the priority level of the task. Once they make their edits, they can press the submit button and the item will be updated on the main todo screen. 
 
-![Task 4 Middle 2](./img/editTask.png)
+Start - Pressing the dropdown icon
+
+![Task 4 Start](./img/lab3/task4start2.png)
+
+Middle 1 - After the edit item option is pressed
+
+![Task 4 Middle 1](./img/lab3/task4middle2.png)
+
+Middle 2 - After updating "Do 124 HW" to "Listen to SOUR" and changing the priority level
+
+![Task 4 Middle 2](./img/lab3/task4middle3.png)
 
 End - After the submit button is pressed
 
-![Task 4 End](./img/lab2/task4end.png)
+![Task 4 End](./img/lab3/task4end2.png)
 
 ### Task 5 - Show only uncompleted items
-Starting with the todo main page, users can press on the "View" bar on the top right of the screen to open up a filter dropdown menu. This menu has "All", "Uncompleted", and "Completed" as options. Pressing "Uncompleted" updates the main todo page to not include the completed tasks. The "Uncompleted" option becomes the value of the "View" bar to remind the user that they are looking at that subset of tasks.
+Starting with the todo main page, users can press on the "View" bar on the top portion of the screen to open up a filter dropdown menu. This menu has "All", "Uncompleted", and "Completed" as options. Pressing "Uncompleted" updates the main todo page to not include the completed tasks. The "Uncompleted" option becomes the value of the "View" bar to remind the user that they are looking at that subset of tasks.
 
 Start
 
-![Task 5 Start](./img/lab2/task5start.png)
+![Task 5 Start](./img/lab3/task6start2.png)
 
 Middle - After the "View" bar is pressed
 
-![Task 5 Middle](./img/lab2/task5middle.png)
+![Task 5 Middle](./img/lab3/task6middle2.png)
 
 End - After the "Uncompleted" option is pressed
 
-![Task 5 End](./img/lab2/task5end.png)
+![Task 5 End](./img/lab3/task6endUncompleted.png)
 
 ### Task 6 - Delete all completed items
 Similar to task 5, users can press the "View" bar to open up the filter dropdown menu. Pressing "Completed" hides all of the uncompleted tasks as well as changes the functionality of the button on the lower right (Note: this means users can not create tasks while only showing completed tasks, which we determined as okay due to the 80/20 rule). The button becomes a delete all button which deletes all of the tasks on screen. The "Completed" option becomes the value of the "View" bar to remind the user that they are looking at a subset of tasks. Once users press the delete all button, the completed tasks on screen are removed.
 
 Start
 
-![Task 6 Start](./img/lab2/task6start.png)
+![Task 6 Start](./img/lab3/task6start2.png)
 
 Middle 1 - After the "Completed" view is selected
 
-![Task 6 Middle 1](./img/lab2/task6middle.png)
+![Task 6 Middle 1](./img/lab3/task6endCompleted.png)
 
 End - After the delete all button is pressed
 
-![Task 6 End](./img/lab2/task6end.png)
+![Task 6 End](./img/lab3/task6endCompletedDelete.png)
+
+### Additional Sorting
+Here are examples of using the sorting feature of our app. Tasks can be sorted by Date, Name, and Priority.
+
+Sorting by Date Created
+
+![Date Created](./img/lab3/task3middle2.png)
+
+Sorting by Task Name
+
+![Task Name](./img/lab3/task3endTitle.png)
+
+Sorting by Task Priority
+
+![Task Priority](./img/lab3/task3endPriority.png)
 
 Challenges
 ----------
 We struggled a lot with filtering our tasks with the addition to the database. Originally, we used a “useEffect” to help filter our todos and update our view when doing so. But, with Firebase, this would cause our application to re-render too many times and crash. We spent a lot of time trying to debug and trying different methods of filtering until we combined our previous method with the database and used a map function to transpose the data onto the view. While the code might seem simple, this took us quite a while to fix and once it finally worked, we were quite happy!
 
 
+### Challenges from previous labs
 One challenge we faced was definitely debugging react. While in other languages you can get exact error messages with syntactical rules, in React, sometimes the error messages are so unique to your project that the internet has no help. But, this required us to be resourceful with debugging and also trying to step through our code logically. 
 
 Another challenge we faced was figuring out the MaterialUI CSS versus our CSS as well. We picked a library that one of the partners felt extremely confident in using as they have had lots of experience with the library before. But, when we imported most of the modules into our project, we realized that the way MaterialUI styles their components were different from the .css files in our project. We were able to resolve this issue by using google inspect element, in-line styles, and learning more about useStyles() and JSS in React. While sometimes it was extremely easy to figure out which MaterialUI class we had to manipulate, sometimes it could be incredibly frustrating indexing through different classes and trying to manipulate the component. But, as time went on, we were able to find a pattern and design our app just the way we liked. 
@@ -227,6 +247,7 @@ Parts of the Design We're Most Proud of
 We really are proud of the new sorting system we put in place as it seemed quite challenging at first. Thankfully, the videos from the Firebase days did help us sort our data, but seeing it work in real-time with our functioning tasks was a great feeling!
 We’re also incredibly proud of the new colors we added to our application as we feel like it fits our “aesthetic” and that we were able to finally fix our filtering issue before the due date too :) 
 
-One task that seemed incredibly daunting was our “filter” task which had to check the status of a task and only display the user-selected filter on the screen. At first, we suspected that this would take quite a large portion of our time together so we decided to leave it off till the end. But, after reading up on useEffect() and looking into the switch keyword, we realized that we could definitely understand how to implement this and how to connect the pieces together. When we were able to get our filter to work, we felt incredibly proud and also more confident in our debugging skills too. We're also very proud of the design decisions we made when implementing this filter option, as we believe the "View" bar and dropdown menu are very user friendly approaches to filtering. 
+### Proud designs from previous labs
+One task that seemed incredibly daunting was our “filter” task which had to check the status of a task and only display the user-selected filter on the screen. At first, we suspected that this would take quite a large portion of our time together so we decided to leave it off till the end. When we were able to get our filter to work, we felt incredibly proud and also more confident in our debugging skills. We're also very proud of the design decisions we made when implementing this filter option, as we believe the "View" bar and dropdown menu are very user friendly approaches to filtering. 
 
 Finally, we’re extremely proud of everything we made! It seemed daunting at first to make a WHOLE application in React, but, after many hours of debugging, celebration, and google searching we are so proud of it and think it can definitely evolve to something even better too! 

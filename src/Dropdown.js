@@ -76,7 +76,6 @@ const StyledMenu = styled((props) => (
           props.onEdit(props.id, "priority", priority);
           handleModalClose();
         }
-      
         return (
           <div>
             {/* Creates a Menu that can open and close and supports a Modal/Deletion */}

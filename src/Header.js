@@ -4,6 +4,10 @@ import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import NativeSelect from '@mui/material/NativeSelect';
+import Tab from '@material-ui/core/Tab';
+import TabContext from '@material-ui/lab/TabContext';
+import TabList from '@material-ui/lab/TabList';
+import TabPanel from '@material-ui/lab/TabPanel';
 
 // JSS styles for our Dropdown.
 const style = {
@@ -15,7 +19,32 @@ const style = {
 
 function capitalize(str){
   return str.charAt(0).toUpperCase() + str.slice(1);
+  
   }
+
+// function LabTabs(props) {
+
+//   const handleChange = (event, newValue) => {
+//     props.handleTab(newValue);
+//   };
+
+//   return (
+//     <Box sx={{ width: '100%', typography: 'body1' }}>
+//       <TabContext value={props.tab}>
+//         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+//           <TabList onChange={handleChange} aria-label="lab API tabs example">
+//             <Tab label="Item One" value={1}/>
+//             <Tab label="Item Two" value={2} />
+//             <Tab label="Item Three" value={3} />
+//           </TabList>
+//         </Box>
+//         {/* <TabPanel value="1"> kjhjhjkh</TabPanel>
+//         <TabPanel value="2">Item Two</TabPanel>
+//         <TabPanel value="3">Item Three</TabPanel> */}
+//       </TabContext>
+//     </Box>
+//   );
+// }
 function Header(props) {
    
     function DropDown(title, itemOne, itemTwo, itemThree, action) {
@@ -45,12 +74,15 @@ function Header(props) {
             </div>
           );
         }
+  
     return <div>
         <div class="header">
+          <div role="group" class="title" aria-label="To Do">
             <h1 id="title">To do</h1>
+          </div>
             <div class="view">{DropDown("View", "all", "completed", "uncompleted", props.view)}</div>
             <div class="sort">{DropDown("Sort", "date", "title", "priority", props.sort)}</div>
-            
+            {/* <LabTabs {...props}/> */}
          </div>
     </div>
 }

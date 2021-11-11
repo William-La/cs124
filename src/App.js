@@ -22,10 +22,15 @@ const db = firebase.firestore();
 
 const name = "william-la-tasks";
 function App() {
+    const [tab, setTab] = useState(1);
     const [view, setView] = useState('all');
     const [sort, setSort] = useState('date');
     const query = sortQuery();
     const [value, loading, error] = useCollection(query);
+
+    function handleTab(value) {
+        setTab(value);
+    }
 
     function handleView(value) {
         setView(value);
@@ -96,7 +101,7 @@ function App() {
     }
 
     return <div>
-        <Header view={handleView} sort={handleSort}/>
+        <Header view={handleView} sort={handleSort} tab={tab} handleTab={handleTab}/>
         {loading && <h1>Loading</h1>}
         {tasks && <List 
                 view={view}

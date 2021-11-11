@@ -16,3 +16,8 @@
 .uncompleted {
     visibility: hidden;
 }
+
+#button {
+    outline: none;
+    
+}

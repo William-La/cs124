@@ -9,3 +9,23 @@
 #inputText, #submitButton {
     font-size: 25px;
 }
+
+@media only screen and (max-width: 640px) {
+    #addCircle {
+        font-size: 150px;
+        grid-column: 1/ span 1;
+        grid-row: 9/ span 1;
+        margin-left: 750px;
+    
+        }
+    }
+/* @media only screen and (min-width: 641px) {
+#addCircle {
+    background-color: orange;
+    margin-left: 1200px !important;
+    grid-column: 1/ span 0.5 !important;
+    grid-row: 1/ span 1;
+    }
+} */
+
+

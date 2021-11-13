@@ -18,11 +18,11 @@ function List(props) {
   }
     
     return <div>
-        <div class="todo-body">
+        <div role="button" class="todo-body">
             {props.list.map(a => <Task {...a} key={a.id} onEdit={props.onEdit} onDeleteTask={props.onDeleteTask}/>)}
             {/* Different values have different actions for our circle button at the bottom. */}
             {props.view === "completed" ?
-            <RemoveCircleIcon style={{fontSize:"150px",
+            <RemoveCircleIcon  style={{fontSize:"150px",
                                         gridColumn: "1/ span 1",
                                         gridRow: "9/ span 1",
                                         marginLeft: "750px",

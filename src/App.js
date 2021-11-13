@@ -22,7 +22,7 @@ const db = firebase.firestore();
 
 const name = "william-la-tasks";
 function App() {
-    const [tab, setTab] = useState(1);
+    const [tab, setTab] = useState(0);
     const [view, setView] = useState('all');
     const [sort, setSort] = useState('date');
     const query = sortQuery();
@@ -88,7 +88,8 @@ function App() {
             title: value,
             completed: false,
             priority: priority,
-            date: Date().toLocaleString()  
+            date: Date().toLocaleString(),
+            tabNum: tab
         })
     }
 
@@ -105,7 +106,7 @@ function App() {
         {loading && <h1>Loading</h1>}
         {tasks && <List 
                 view={view}
-                list={tasks}
+                list={tasks.filter(task => task.tabNum === tab)}
                 onEdit={handleEdit}
                 onNewTask={handleNewTask}
                 onDeleteAll={handleDeleteAll}

@@ -31,7 +31,7 @@ function List(props) {
                                         marginLeft: "750px",
                                         }} 
                               onClick={() => props.onDeleteAll(props.list)}/></IconButton>:
-           <IconButton setKeyboardFocus="true" size="large" disableRipple= "true" aria-label="add">
+           <button class="aria-button" type="button">
            <AddCircleIcon 
   
                            style={{fontSize:"150px",
@@ -40,7 +40,7 @@ function List(props) {
                                     marginLeft: "750px",
                                     }} 
                            onClick={handleOpen}/>
-          </IconButton>}
+          </button>}
          </div>
 
             <div>

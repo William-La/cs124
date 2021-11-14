@@ -9,8 +9,23 @@
 #inputText, #submitButton {
     font-size: 25px;
 }
+.AddCircle {
+    font-size:150px;
+    grid-column: 1/ span 1;
+    grid-row: 9/ span 1;
+    margin-left: 830px ;
+}
 
-@media only screen and (max-width: 640px) {
+.AddCircle:focus {
+    background-color: orange;
+}
+
+.css-mf1cb5-MuiButtonBase-root-MuiIconButton-root:hover {
+
+    background-color: transparent !important;
+}
+
+/* @media only screen and (max-width: 640px) {
     #addCircle {
         font-size: 150px;
         grid-column: 1/ span 1;
@@ -18,7 +33,7 @@
         margin-left: 750px;
     
         }
-    }
+    } */
 /* @media only screen and (min-width: 641px) {
 #addCircle {
     background-color: orange;

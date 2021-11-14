@@ -5,6 +5,7 @@ import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import OurModal from "./OurModal"
 import "./List.css";
 import { useState } from "react";
+import { IconButton } from "@mui/material";
 
 
 function List(props) {
@@ -18,23 +19,30 @@ function List(props) {
   }
     
     return <div>
-        <div role="button" class="todo-body">
+        <div  class="todo-body">
             {props.list.map(a => <Task {...a} key={a.id} onEdit={props.onEdit} onDeleteTask={props.onDeleteTask}/>)}
             {/* Different values have different actions for our circle button at the bottom. */}
+
             {props.view === "completed" ?
-            <RemoveCircleIcon  style={{fontSize:"150px",
+            <IconButton aria-label="delete">
+            <RemoveCircleIcon style={{fontSize:"150px",
                                         gridColumn: "1/ span 1",
                                         gridRow: "9/ span 1",
                                         marginLeft: "750px",
                                         }} 
-                              onClick={() => props.onDeleteAll(props.list)}/>:
-            <AddCircleIcon id="addCircle"
-                           style={{fontSize:"150px"}}
-                          //           gridColumn: "1/ span 1",
-                          //           gridRow: "9/ span 1",
-                          //           marginLeft: "750px",
-                          //           }} 
-                           onClick={handleOpen}/>}
+                              onClick={() => props.onDeleteAll(props.list)}/></IconButton>:
+           <IconButton setKeyboardFocus="true" size="large" disableRipple= "true" aria-label="add">
+           <AddCircleIcon 
+  
+                           style={{fontSize:"150px",
+                                    gridColumn: "1/ span 1",
+                                    gridRow: "9/ span 1",
+                                    marginLeft: "750px",
+                                    }} 
+                           onClick={handleOpen}/>
+          </IconButton>}
+         </div>
+
             <div>
               {/* Creates a Modal to add a new task. */}
               <OurModal 
@@ -49,7 +57,7 @@ function List(props) {
               />
       </div>
     </div>
-  </div>
+  // </div>
 
 }
 

@@ -11,6 +11,7 @@
 .completed {
     width: 10px;
     height: 10px;
+    margin-bottom: 100px;
 }
 
 .uncompleted {

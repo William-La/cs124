@@ -31,14 +31,18 @@ function List(props) {
                                         marginLeft: "750px",
                                         }} 
                               onClick={() => props.onDeleteAll(props.list)}/></IconButton>:
-           <button class="aria-button" type="button">
+           <button class="aria-button" type="button"
+            // style={{
+            //   // gridColumn: "1/ span 1",
+            //   // gridRow: "9/ span 1",
+            //   marginLeft: "1000px",
+            //   marginTop: "-27px"
+            //   }} 
+
+           >
            <AddCircleIcon 
   
-                           style={{fontSize:"150px",
-                                    gridColumn: "1/ span 1",
-                                    gridRow: "9/ span 1",
-                                    marginLeft: "750px",
-                                    }} 
+                           style={{fontSize:"150px"}}
                            onClick={handleOpen}/>
           </button>}
          </div>

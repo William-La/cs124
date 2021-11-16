@@ -23,7 +23,7 @@ function Task(props) {
             <div class="todo-item" style={{backgroundColor: priorityColor(props.priority)}}>
                 
                 {/* Checks if a task needs to be crossed out if completed. */}
-                {props.completed ? <p class="task-text" id="complete">{props.title}</p> : <p class="task-text">{props.title}</p>}
+                {props.completed ? <p aria-label={"Selected task: " , props.title} class="task-text" id="complete">{props.title}</p> : <p class="task-text">{props.title}</p>}
                 
                 {/* Adds the dropdown box to edit and delete per task. */}
                 <div class="todo-edit">

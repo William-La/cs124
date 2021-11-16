@@ -31,7 +31,7 @@ function List(props) {
                                         marginLeft: "750px",
                                         }} 
                               onClick={() => props.onDeleteAll(props.list)}/></IconButton>:
-           <button class="aria-button" type="button"
+           <button class="aria-button" type="submit" onKeyPress={handleOpen}
             // style={{
             //   // gridColumn: "1/ span 1",
             //   // gridRow: "9/ span 1",

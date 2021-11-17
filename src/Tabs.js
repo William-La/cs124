@@ -75,7 +75,8 @@ export default function FullWidthTabs(props) {
           onChange={handleChange}
           indicatorColor="primary"
           textColor="inherit"
-          variant="fullWidth"
+          variant="scrollable"
+          scrollButtons="auto"
           TabIndicatorProps={{style: {background:'black'}}}
            aria-label="full width tabs example"
         >

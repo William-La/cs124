@@ -24,22 +24,11 @@ function List(props) {
             {/* Different values have different actions for our circle button at the bottom. */}
 
             {props.view === "completed" ?
-            <IconButton aria-label="delete">
-            <RemoveCircleIcon style={{fontSize:"150px",
-                                        gridColumn: "1/ span 1",
-                                        gridRow: "9/ span 1",
-                                        marginLeft: "750px",
-                                        }} 
-                              onClick={() => props.onDeleteAll(props.list)}/></IconButton>:
-           <button class="aria-button" type="submit" onKeyPress={handleOpen}
-            // style={{
-            //   // gridColumn: "1/ span 1",
-            //   // gridRow: "9/ span 1",
-            //   marginLeft: "1000px",
-            //   marginTop: "-27px"
-            //   }} 
-
-           >
+           <button class="aria-button" aria-label="delete tasks" type="submit" onKeyPress={() => props.onDeleteAll(props.list)}>
+           <RemoveCircleIcon  style={{fontSize:"150px"}}
+                              onClick={() => props.onDeleteAll(props.list)}/>
+            </button>:
+           <button class="aria-button" aria-label="new tasks" type="submit" onKeyPress={handleOpen}>
            <AddCircleIcon 
   
                            style={{fontSize:"150px"}}

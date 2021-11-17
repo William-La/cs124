@@ -1,8 +1,9 @@
 
 body {
     display: grid;
-    grid-template-rows: 1fr 4fr;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    grid-template-rows: 1fr;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 .header {

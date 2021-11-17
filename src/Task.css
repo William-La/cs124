@@ -13,7 +13,7 @@
     grid-column: 2/ span 1;
     width: 700px;
     height: 100px;
-    margin-right: 60px;
+    /* margin-right: 255px; */
     display: flex;
     flex-wrap:wrap;
 

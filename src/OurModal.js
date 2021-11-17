@@ -93,6 +93,7 @@ export default function OurModal(props) {
             <label for="priValueLow">Low</label><br></br>
           <br/>
           <input id="submitButton" type="submit" value={props.submitText} />
+          <input id="submitButton" type="submit" value={props.handleClose} />
       </form>
     </Box>
   </Modal>

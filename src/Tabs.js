@@ -12,14 +12,6 @@ import { createStyles, makeStyles } from '@mui/styles';
 import "./Tabs.css"
 
 
-
-// const useStyles = makeStyles({
-//     root: {
-//       backgroundColor: 'red',
-//       color: (props) => props.color,
-//     },
-//   });
-
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -80,9 +72,10 @@ export default function FullWidthTabs(props) {
           TabIndicatorProps={{style: {background:'black'}}}
            aria-label="full width tabs example"
         >
-          <Tab label="School" {...a11yProps(0)} />
+          {props.tabs.map((tab) => <Tab label={tab.name} id={`full-width-tab-`+tab.id} aria-controls={`full-width-tabpanel-`+tab.id}/>)}
+          {/* <Tab label="School" {...a11yProps(0)} />
           <Tab label="Chores" {...a11yProps(1)} />
-          <Tab label="Random" {...a11yProps(2)} />
+          <Tab label="Random" {...a11yProps(2)} /> */}
         </Tabs>
       </AppBar>
       <SwipeableViews

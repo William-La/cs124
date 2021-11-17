@@ -19,6 +19,20 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
+const tabs = [
+    {
+        id: 0,
+        name: "School",
+    },
+    {
+        id: 1,
+        name: "Chores",
+    },
+    {
+        id: 2,
+        name: "Random",
+    },
+]
 
 const name = "william-la-tasks";
 function App() {
@@ -102,7 +116,7 @@ function App() {
     }
 
     return <div>
-        <Header view={handleView} sort={handleSort} tab={tab} handleTab={handleTab}/>
+        <Header view={handleView} sort={handleSort} tab={tab} handleTab={handleTab} tabs={tabs}/>
         {loading && <h1>Loading</h1>}
         {tasks && <List 
                 view={view}

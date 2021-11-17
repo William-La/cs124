@@ -16,7 +16,7 @@ function List(props) {
     function handleSubmit(input, priority) {
       props.onNewTask(input, priority);
       handleClose();
-  }
+    }
     
     return <div>
         <div  class="todo-body">
@@ -44,14 +44,13 @@ function List(props) {
                 modalText={"Please enter a new task"}
                 submitText={"Create Task"}
                 handleAction={handleSubmit}
+                handleClose={handleClose}
                 title=''
                 priority='2'
                 newItem={true}
               />
       </div>
     </div>
-  // </div>
-
 }
 
 export default List;

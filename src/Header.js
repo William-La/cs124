@@ -7,11 +7,13 @@ import NativeSelect from '@mui/material/NativeSelect';
 import Tab from "./Tabs.js"
 
 // JSS styles for our Dropdown.
-const style = {
+const style = ({
+  root: {
     paddingLeft: '15px',
     paddingTop: '191px',
-    transform: 'scale(1.5)'
-}
+    // transform: 'scale(1.5)'
+  }
+});
 
 
 function capitalize(str){
@@ -25,7 +27,7 @@ function Header(props) {
     function DropDown(title, itemOne, itemTwo, itemThree, action) {
 
         return (
-            <div class="dropdown" style={style}>
+            <div class="dropdown" style={style.root}>
             <Box sx={{ minWidth: 120}}>
               <FormControl fullWidth>
                 <InputLabel variant="standard" htmlFor="uncontrolled-native">

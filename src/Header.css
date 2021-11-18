@@ -7,6 +7,7 @@
     max-width: 100%;
 }
 
+
 #title {
     font-size: 10em;
     padding-left: 48px;
@@ -28,3 +29,45 @@
 .MuiBox-root css-ece9u5 {
     background-color: orange !important;
 }
+
+
+
+.dropdown {
+    /* background-color: rgb(161, 115, 29); */
+    transform: scale(1.5);
+}
+
+@media only screen and (max-width: 1000px) {
+    #title {
+        font-size: 5em;
+    }
+    .dropdown {
+        transform: scale(1) !important;
+        padding-left: 0px !important;
+        padding-top: 160px !important
+    }
+}
+
+@media only screen and (max-width: 686px) {
+    .sort {
+        margin-top: 76px;
+        height: 36px;
+        margin-left: -230px;    }
+}
+
+/* 
+@media only screen and (min-width: 940px) {
+    #title {
+        font-size: 10em;
+        padding-left: 48px;
+        margin-top: 72px;
+
+        
+    }
+    
+} */
+/* @media only screen and (min-width: 600px) {
+    .header {
+        height: 30%
+    }
+} */

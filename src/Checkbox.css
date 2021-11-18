@@ -8,6 +8,13 @@
     margin-left: 55px;
 }
 
+/* @media only screen and (min-width: 600px) {
+    .todo-checkbox {
+        height: 50px;
+        width: 50px;
+    }
+} */
+
 .completed {
     width: 10px;
     height: 10px;

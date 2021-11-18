@@ -2,8 +2,9 @@
     grid-column: 1/ span 3;
     display: grid;
     grid-template-columns: 1fr 3fr;
-    align-items: center;
-    justify-items: center;
+    /* testing */
+    /* align-items: center;
+    justify-items: center; */
     margin-top: 30px;
 
 }
@@ -16,7 +17,6 @@
     grid-column: 2/ span 1;
     width: 700px;
     height: 100px;
-    /* margin-right: 255px; */
     display: flex;
     flex-wrap:wrap;
     
@@ -51,18 +51,34 @@
     text-decoration: line-through;
 }
 
-@media only screen and (max-width: 870px) {
-    .todo-item {
-        width: auto;
-        height: 10vh;;
-        /* margin-left: -200px; */
+@media only screen and (min-width: 1000px) and (orientation:landscape) {
+  .todo-item {
+    width: 700px;
+    height: 80px
     }
     .task-text {
-        font-size: 25px;
+        margin-top: 20px;
+
     }
-
+    /* .task-text {
+        font-size: 2vw;
+    } */
 }
+@media only screen and (max-width: 870px) {
+    .todo-item {
+        width: 60vw;
+        height: 100px;
+    }.task-text {
+        font-size:4vw;
+        margin-top: -5px;
+        /* justify-content: center; */
+        /* font-size:calc(12px + 1.5vw); */
 
+
+        
+    }
+}
+    
 /* 
 Need to figure out how to scale the header width with the screen size and also do 
 the same with the task text. Also make the dropdown bar look better when scaled */

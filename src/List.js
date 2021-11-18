@@ -43,6 +43,7 @@ function List(props) {
                 placeholder={"Enter a new task"}
                 modalText={"Please enter a new task"}
                 submitText={"Create Task"}
+                closeText={"Cancel"}
                 handleAction={handleSubmit}
                 handleClose={handleClose}
                 title=''

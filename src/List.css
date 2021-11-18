@@ -6,7 +6,7 @@
     grid-template-rows: 150px 150px 150px 150px 150px 150px;
 }
 
-#inputText, #submitButton {
+#inputText, #submitButton #cancelButton{
     font-size: 25px;
 }
 .AddCircle {

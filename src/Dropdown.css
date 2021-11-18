@@ -17,12 +17,13 @@
 
 @media only screen and (max-width: 870px) {
     #demo-customized-button {
-        left: 0px;
+        left: 45vw;
+        bottom: 45px
     }
-}
+} 
 
-/* @media only screen and (max-width: 900px) {
+@media only screen and (max-width: 900px) {
     .dropdown {
         transform: scale(1) !important;
     }
-} */
+} 

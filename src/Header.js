@@ -9,9 +9,9 @@ import Tab from "./Tabs.js"
 // JSS styles for our Dropdown.
 const style = ({
   root: {
-    paddingLeft: '15px',
-    paddingTop: '191px',
-    // transform: 'scale(1.5)'
+    // paddingLeft: '15px',
+    paddingTop: '170px',
+    transform: 'scale(1.5)'
   }
 });
 

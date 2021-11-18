@@ -18,12 +18,12 @@ function Task(props) {
     return <div>
         <div class="todo-task" id={props.id}>
             
-            <Checkbox priorityColor={priorityColor(props.priority)} completed={props.completed} onCompleted={() => props.onEdit(props.id, "completed", !props.completed)}/>
+            <Checkbox aria-label={!props.completed} priorityColor={priorityColor(props.priority)} completed={props.completed} onCompleted={() => props.onEdit(props.id, "completed", !props.completed)}/>
             
-            <div class="todo-item" style={{backgroundColor: priorityColor(props.priority)}}>
+            <div class="todo-item" role="text" style={{backgroundColor: priorityColor(props.priority)}}>
                 
                 {/* Checks if a task needs to be crossed out if completed. */}
-                {props.completed ? <p aria-label={"Selected task: " , props.title} class="task-text" id="complete">{props.title}</p> : <p class="task-text">{props.title}</p>}
+                {props.completed ? <p label="aksdaksdjaksjd" role="text" class="task-text" id="complete">{props.title}</p> : <p aria-label={props.title} role="text" class="task-text">{props.title}</p>}
                 
                 {/* Adds the dropdown box to edit and delete per task. */}
                 <div class="todo-edit">

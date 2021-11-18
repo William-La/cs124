@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useState } from "react";
 import { useRef } from "react";
+import "./OurModal.css";
 
 // Material UI JSS styles for the Modal component. 
 const style = {
@@ -25,6 +26,9 @@ export default function OurModal(props) {
   const [priority, setPriority] = useState(props.priority);
   const inputTask = useRef(null);
 
+  function handleClose() {
+    props.handleClose();
+  }
   function handleSubmit() {
     props.handleAction(input, priority);
 
@@ -93,7 +97,7 @@ export default function OurModal(props) {
             <label for="priValueLow">Low</label><br></br>
           <br/>
           <input id="submitButton" type="submit" value={props.submitText} />
-          <input id="submitButton" type="submit" value={props.handleClose} />
+          <input type="button" id="closeButton" onClick={props.handleClose} value="Cancel" />
       </form>
     </Box>
   </Modal>

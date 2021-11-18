@@ -7,6 +7,20 @@
     background-color: #c9c5b8;
 }
 
+#demo-customized-button {
+    bottom: 90px;
+    left: 600px;
+    transform: scale(1.5);
+    background: none;
+    color: black;
+}
+
+@media only screen and (max-width: 870px) {
+    #demo-customized-button {
+        left: 0px;
+    }
+}
+
 /* @media only screen and (max-width: 900px) {
     .dropdown {
         transform: scale(1) !important;

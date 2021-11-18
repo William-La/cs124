@@ -29,3 +29,10 @@
     outline: none;
     
 }
+
+@media only screen and (max-width: 870px) {
+    .todo-checkbox {
+        width: 80px;
+        height: 80px;;
+    }
+}

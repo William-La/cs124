@@ -23,6 +23,7 @@
 
 }
 
+
 /* @media only screen and (min-width: 600px) {
     .todo-item {
         width: 700px;
@@ -49,3 +50,19 @@
 #complete {
     text-decoration: line-through;
 }
+
+@media only screen and (max-width: 870px) {
+    .todo-item {
+        width: auto;
+        height: 10vh;;
+        /* margin-left: -200px; */
+    }
+    .task-text {
+        font-size: 25px;
+    }
+
+}
+
+/* 
+Need to figure out how to scale the header width with the screen size and also do 
+the same with the task text. Also make the dropdown bar look better when scaled */

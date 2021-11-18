@@ -87,16 +87,15 @@ const StyledMenu = styled((props) => (
               variant="contained"
               disableElevation
               onClick={handleClick}
-              endIcon={<KeyboardArrowDownIcon />}
-              style={{
+              endIcon={<KeyboardArrowDownIcon />}>
+              </Button>
+              {/* this goes in button style={{
                     bottom: "90px",
                     left: "600px",
                     transform: "scale(1.5)",
                     background: "none",
                     color: "black"
-                }}>
-              </Button>
-
+                }} */}
             <StyledMenu
               id="demo-customized-menu"
               MenuListProps={{

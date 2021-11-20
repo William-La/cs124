@@ -69,8 +69,11 @@
         width: 60vw;
         height: 100px;
     }.task-text {
-        font-size:4vw;
-        margin-top: -5px;
+        text-align: right;
+        float: right;
+        font-size: 3vw;
+        /*
+        margin-top: -5px; */
         /* justify-content: center; */
         /* font-size:calc(12px + 1.5vw); */
 
@@ -78,6 +81,16 @@
         
     }
 }
+
+
+@media only screen and (max-width: 686px) {
+    .task-text {
+        font-size: 25px;
+        white-space: nowrap;
+        margin-right: 10px;
+    }
+} 
+
     
 /* 
 Need to figure out how to scale the header width with the screen size and also do 

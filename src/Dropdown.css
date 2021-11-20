@@ -15,15 +15,26 @@
     color: black;
 }
 
-@media only screen and (max-width: 870px) {
-    #demo-customized-button {
-        left: 45vw;
-        bottom: 45px
-    }
-} 
+
 
 @media only screen and (max-width: 900px) {
     .dropdown {
         transform: scale(1) !important;
+    }
+} 
+
+
+@media screen and (min-width: 686px) and (max-width: 870px) {
+    #demo-customized-button  {
+        left: 51vw;
+        top: -10vh;
+    }
+
+}
+
+@media only screen and (max-width: 686px) {
+    #demo-customized-button {
+        left: 45vw;
+        bottom: 85px
     }
 } 

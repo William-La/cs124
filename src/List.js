@@ -8,6 +8,15 @@ import { useState } from "react";
 import { IconButton } from "@mui/material";
 
 
+const style = {
+  fontSize: "100px",
+  '@media (max-width: 686px)': {
+    fontSize: "100px !important",
+  }
+}
+
+
+
 function List(props) {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -25,13 +34,12 @@ function List(props) {
 
             {props.view === "completed" ?
            <button class="aria-button" aria-label="delete tasks" type="submit" onKeyPress={() => props.onDeleteAll(props.list)}>
-           <RemoveCircleIcon  style={{fontSize:"150px"}}
+           <RemoveCircleIcon  style={style}
                               onClick={() => props.onDeleteAll(props.list)}/>
             </button>:
            <button class="aria-button" aria-label="new tasks" type="submit" onKeyPress={handleOpen}>
            <AddCircleIcon 
-  
-                           style={{fontSize:"150px"}}
+                          style={style}
                            onClick={handleOpen}/>
           </button>}
          </div>

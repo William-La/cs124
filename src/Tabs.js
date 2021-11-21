@@ -5,38 +5,13 @@ import { useTheme } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import Close from "@material-ui/icons/Close";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { createStyles, makeStyles } from '@mui/styles';
 import "./Tabs.css"
-
-
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={props.tab !== index}
-      id={`full-width-tabpanel-${index}`}
-      aria-labelledby={`full-width-tab-${index}`}
-      {...other}
-    >
-      {props.tab === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
+import TabModal from "./TabModal"
 
 function a11yProps(index) {
   return {
@@ -54,13 +29,11 @@ export default function FullWidthTabs(props) {
     props.handleTab(newValue);
   };
 
-  const handleChangeIndex = (index) => {
-    props.handleTab(index);
-  };
-
   return (
     <ThemeProvider theme={theme}>
     <Box sx={{width: "100%" }}>
+        {/*New Tab Button*/}
+      {<TabModal id="tabModal" onNewTab={props.handleNewTab}/>}
       <AppBar position="static">
         <Tabs
           value={props.tab}
@@ -72,13 +45,28 @@ export default function FullWidthTabs(props) {
           TabIndicatorProps={{style: {background:'black'}}}
            aria-label="full width tabs example"
         >
-          {props.tabs.map((tab) => <Tab label={tab.name} id={`full-width-tab-`+tab.id} aria-controls={`full-width-tabpanel-`+tab.id}/>)}
+          {props.tabs.map((tab) => tab.tabId === "0" ? 
+            <Tab label={tab.title}
+                id={`full-width-tab-`+tab.tabId}
+                aria-controls={`full-width-tabpanel-`+tab.tabId}
+                value={tab.tabId}/> :
+            <Tab 
+                icon={
+                  <Close id={tab.tabId} onClick={() => props.handleDeleteTab(tab.tabId)}/>
+                }
+                iconPosition="start"
+                label={tab.title}
+                id={`full-width-tab-`+tab.tabId}
+                aria-controls={`full-width-tabpanel-`+tab.tabId}
+                value={tab.tabId}
+                />
+            )}
           {/* <Tab label="School" {...a11yProps(0)} />
           <Tab label="Chores" {...a11yProps(1)} />
           <Tab label="Random" {...a11yProps(2)} /> */}
         </Tabs>
       </AppBar>
-      <SwipeableViews
+      {/* <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={props.tab}
         onChangeIndex={handleChangeIndex}
@@ -92,7 +80,7 @@ export default function FullWidthTabs(props) {
         <TabPanel value={props.tab} index={2} dir={theme.direction}>
           Item Three
         </TabPanel>
-      </SwipeableViews>
+      </SwipeableViews> */}
     </Box>
     </ThemeProvider>
   );

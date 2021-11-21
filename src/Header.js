@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import NativeSelect from '@mui/material/NativeSelect';
-import Tab from "./Tabs.js"
+import Tabs from "./Tabs.js"
 
 // JSS styles for our Dropdown.
 const style = ({
@@ -59,7 +59,7 @@ function Header(props) {
           </div>
             <div class="view">{DropDown("View", "all", "completed", "uncompleted", props.view)}</div>
             <div class="sort">{DropDown("Sort", "date", "title", "priority", props.sort)}</div>
-            <Tab {...props}/>
+            <Tabs {...props}/>
             {/* <LabTabs {...props}/> */}
          </div>
     </div>

@@ -9,15 +9,9 @@
 #inputText, #submitButton #cancelButton{
     font-size: 25px;
 }
-/* .AddCircle {
-    font-size:150px;
-    grid-column: 1/ span 1;
-    grid-row: 9/ span 1;
-    margin-left: 830px ;
-} */
+
 
 .AddCircle:focus {
-    /* background-color: orange; */
     background-color: transparent;
 
 }
@@ -29,7 +23,6 @@
 
 .aria-button:focus {
     background-color: transparent;
-    /* background-color: orange; */
 }
 .aria-button {
     width: 100px;
@@ -37,35 +30,11 @@
     border: none;
     background-color: transparent;
     position: fixed;
-    /* margin-left: 1250px; */
     margin-top: -27px;
     left: 80%;
     top: 90%;
 }
 
 
-/* @media only screen and (max-width: 686px) {
-    .AddCircleIcon {
-        font-size: 100px !important;
-    }
-} */
-
-/* @media only screen and (max-width: 640px) {
-    #addCircle {
-        font-size: 150px;
-        grid-column: 1/ span 1;
-        grid-row: 9/ span 1;
-        margin-left: 750px;
-    
-        }
-    } */
-/* @media only screen and (min-width: 641px) {
-#addCircle {
-    background-color: orange;
-    margin-left: 1200px !important;
-    grid-column: 1/ span 0.5 !important;
-    grid-row: 1/ span 1;
-    }
-} */
 
 

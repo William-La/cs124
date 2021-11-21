@@ -25,14 +25,8 @@
     bottom: 55px
 }
 
-.MuiBox-root css-ece9u5 {
-    background-color: orange !important;
-}
-
-
 
 .dropdown {
-    /* background-color: rgb(161, 115, 29); */
     transform: scale(1.5);
 }
 @media only screen and (max-width: 1000px) {
@@ -62,19 +56,3 @@
         margin-left: -230px;    }
 }
 
-/* 
-@media only screen and (min-width: 940px) {
-    #title {
-        font-size: 10em;
-        padding-left: 48px;
-        margin-top: 72px;
-
-        
-    }
-    
-} */
-/* @media only screen and (min-width: 600px) {
-    .header {
-        height: 30%
-    }
-} */

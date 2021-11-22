@@ -31,7 +31,7 @@ export default function FullWidthTabs(props) {
 
   return (
     <ThemeProvider theme={theme}>
-    <Box sx={{width: "100%" }}>
+    <Box sx={{width: "100vw"}}>
         {/*New Tab Button*/}
       {<TabModal id="tabModal" onNewTab={props.handleNewTab}/>}
       <AppBar position="static">
@@ -43,23 +43,33 @@ export default function FullWidthTabs(props) {
           variant="scrollable"
           scrollButtons="auto"
           TabIndicatorProps={{style: {background:'black'}}}
-           aria-label="full width tabs example"
+           aria-label="Select List"
         >
           {props.tabs.map((tab) => tab.tabId === "0" ? 
-            <Tab label={tab.title}
-                id={`full-width-tab-`+tab.tabId}
-                aria-controls={`full-width-tabpanel-`+tab.tabId}
-                value={tab.tabId}/> :
-            <Tab 
-                icon={
-                  <Close id={tab.tabId} onClick={() => props.handleDeleteTab(tab.tabId)}/>
-                }
-                iconPosition="start"
+          
+            <Tab aria-label={tab.title}
+                role="button"
                 label={tab.title}
                 id={`full-width-tab-`+tab.tabId}
                 aria-controls={`full-width-tabpanel-`+tab.tabId}
+                value={tab.tabId}/> :
+            // <button class="tab-button" aria-label={tab.title} type="submit" onKeyPress={handleChange} onClick={handleChange}>
+            <Tab 
+
+                icon={
+                  <button class="tab-delete-button" aria-label={"delete " + tab.title} type="submit" onKeyPress={() => props.handleDeleteTab(tab.tabId)}>
+                  <Close role="button" id={tab.tabId} onClick={() => props.handleDeleteTab(tab.tabId)}/>
+                  </button>
+                }
+                aria-label={tab.title}
+                role="button"
+                iconPosition="start"
+                label={tab.title}
+                id={`full-width-tab-`+tab.tabId}
+                aria-controls={`tab-`+tab.tabId}
                 value={tab.tabId}
                 />
+            // </button>
             )}
           {/* <Tab label="School" {...a11yProps(0)} />
           <Tab label="Chores" {...a11yProps(1)} />

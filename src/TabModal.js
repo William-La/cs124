@@ -36,7 +36,9 @@ export default function BasicModal(props) {
 
     return (
         <div>
-            <Button onClick={handleOpen}>Create New List</Button>
+            <Button aria-label="Create new list" onClick={handleOpen}
+                    style={{color:"black"}}
+            >Create New List</Button>
             <Modal
             open={open}
             onClose={handleClose}

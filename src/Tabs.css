@@ -2,3 +2,13 @@
     background-color: #AF92C8 !important;
     color: black !important;
 }
+
+.tab-button{
+    background: transparent;
+    border: none;
+}
+
+.MuiTab-iconWrapper {
+    background: transparent !important;
+    border: none !important; 
+}

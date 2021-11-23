@@ -13,6 +13,6 @@
     border: none !important; 
 }
 
-.MuiSvgIcon-root {
-    font-size: 1em !important;
+.MuiTab-iconWrapper > .MuiSvgIcon-root {
+    font-size: 1em;
 }

@@ -5,7 +5,7 @@ CS124 Section 1
 
 [Link to deployed app](https://william-la.github.io/cs124/)
 
-Nov. 4th 2021
+Nov. 22th 2021
 
 Design Decisions, Rationale, and Alternative Designs Considered
 ------------------------------

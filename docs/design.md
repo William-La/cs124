@@ -168,6 +168,29 @@ Final Design
 ------------
 ## New Aspects in the Final Design
 ### Creating a New List
+Users are able to create new list categories using the UI in the app header.
+Start
+
+![Add List Start](./img/lab4/task1end.png)
+
+Middle - After the Create New List button is pressed
+
+![Add List Middle](./img/lab4/task2start.png)
+
+End - After the submit button is pressed
+
+![Add List End](./img/lab4/task2end.png)
+
+### Deleting a List
+Users are able to delete list categories using the UI in the app header. Specifically, if the "x" above the list name is pressed then the list will be deleted
+
+Start
+
+![Delete List Start](./img/lab4/task5middle.png)
+
+End - After the "x" button is pressed on the School list
+
+![Delete List End](./img/lab4/task5end.png)
 
 ## Final Design Flow From Previous Labs
 ### Task 1 - In an empty list, create an item.

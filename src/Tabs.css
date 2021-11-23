@@ -1,6 +1,10 @@
-.css-hip9hq-MuiPaper-root-MuiAppBar-root {
-    background-color: #AF92C8 !important;
-    color: black !important;
+.MuiTabs-scroller, .MuiTab-hideScrollbar, .MuiTab-scrollableX, .css-69z67c-MuiTabs-scroller > .css-hip9hq-MuiPaper-root-MuiAppBar-root {
+    background-color: #AF92C8;
+    color: black;
+}
+
+.MuiBox-root > .css-hip9hq-MuiPaper-root-MuiAppBar-root{
+    background-color: #AF92C8;
 }
 
 .tab-button{

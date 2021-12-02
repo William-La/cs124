@@ -53,7 +53,7 @@ function App(props) {
     }
 }
 
-const FAKE_EMAIL = 'wla@hmc.edu';
+const FAKE_EMAIL = 'foo@bar.com';
 const FAKE_PASSWORD = '123456';
 
 function SignIn() {

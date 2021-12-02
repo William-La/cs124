@@ -32,6 +32,7 @@ function App(props) {
 
     function verifyEmail() {
         auth.currentUser.sendEmailVerification();
+        window.alert('email sent')
     }
 
     if (loading) {
@@ -52,8 +53,8 @@ function App(props) {
     }
 }
 
-const FAKE_EMAIL = 'foo@bar.com';
-const FAKE_PASSWORD = 'xyzzyxx';
+const FAKE_EMAIL = 'wla@hmc.edu';
+const FAKE_PASSWORD = '123456';
 
 function SignIn() {
     const [
@@ -109,7 +110,7 @@ function SignedInApp(props) {
     const [tab, setTab] = useState("0");
     const [view, setView] = useState('all');
     const [sort, setSort] = useState('date');
-    const query = db.collection(tabs_collection);
+    const query = db.collection(tabs_collection).where('owner', '==', props.user.uid);
     const [value, loading, error] = useCollection(query);
 
     function handleTab(value) {

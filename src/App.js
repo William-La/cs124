@@ -75,10 +75,10 @@ function SignIn() {
 
         {error && <p>"Error logging in: " {error.message}</p>}
         <div class="buttons">
-        <button class="signinButton" onClick={() =>
+        <button class="signinButton bouncy" onClick={() =>
             signInWithEmailAndPassword(FAKE_EMAIL, FAKE_PASSWORD)}>Login with test user Email/PW
         </button>
-        <button class="signinButton" onClick={() =>
+        <button class="signinButton bouncy" style={{animationDelay: "0.07s"}} onClick={() =>
             auth.signInWithPopup(googleProvider)}>Login with Google
         </button>
         </div>

@@ -111,6 +111,7 @@ function List(props) {
     
     return <div>
       {loading && <h1>Task Loading</h1>}
+      
       {tasks && <>
         <div  class="todo-body">
             {tasks.map(a => <Task {...a} key={a.id} onEdit={handleEditTask} onDeleteTask={handleDeleteTask}/>)}

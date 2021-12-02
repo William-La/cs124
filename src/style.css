@@ -3,7 +3,6 @@ body {
     display: grid;
     grid-template-rows: 1fr;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
 }
 
 .header {
@@ -12,3 +11,51 @@ body {
     background-color: #AF92C8;
     grid-column: 1 / 6;
 }
+
+
+.banner {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #AF92C8;
+        grid-column: 1 / 6;
+        max-width: 100%;
+        height: 300px;
+
+}
+#title {
+    font-size: 10em;
+    padding-left: 48px;
+    margin-top: 72px;
+}
+
+.signinButton{
+    top: 200px;
+    right: 200px;
+    display:inline-block;
+    padding:0.7em 1.4em;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.15em;
+    border-color: gray;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    text-transform:uppercase;
+    font-weight:400;
+    color:black;
+    background-color:#B2BD7E;
+    box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+    text-align:center;
+    position:relative;
+}
+    .signinButton:active{
+        top:0.1em;
+        top: 200px;
+        right: 200px;
+    }
+    @media all and (max-width:30em){
+        .signinButton{
+            display:block;
+            margin:0.4em auto;
+        }
+    }
+    

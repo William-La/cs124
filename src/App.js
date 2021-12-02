@@ -69,14 +69,20 @@ function SignIn() {
     } else if (loading) {
         return <p>Logging in…</p>
     }
-    return <div>
+    return <div class="sign-in">
+        <div class="banner">
+            <h1 id="title"> Todo </h1>
+
         {error && <p>"Error logging in: " {error.message}</p>}
-        <button onClick={() =>
+        <div class="buttons">
+        <button class="signinButton" onClick={() =>
             signInWithEmailAndPassword(FAKE_EMAIL, FAKE_PASSWORD)}>Login with test user Email/PW
         </button>
-        <button onClick={() =>
+        <button class="signinButton" onClick={() =>
             auth.signInWithPopup(googleProvider)}>Login with Google
         </button>
+        </div>
+        </div>
     </div>
 }
 
@@ -93,7 +99,7 @@ function SignUp() {
     } else if (loading) {
         return <p>Signing up…</p>
     }
-    return <div>
+    return <div class="testUser">
         {error && <p>"Error signing up: " {error.message}</p>}
         <button onClick={() =>
             createUserWithEmailAndPassword(FAKE_EMAIL, FAKE_PASSWORD)}>

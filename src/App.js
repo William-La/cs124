@@ -171,6 +171,7 @@ function SignedInApp(props) {
                 sort={sort}
                 tab={tab}
                 db={db}
+                user={props.user}
             />
         }
     </div>;

@@ -41,7 +41,7 @@ function App(props) {
         return <div>
             {user.displayName || user.email}
             <SignedInApp {...props} user={user}/>
-            <button type="button" onClick={() => auth.signOut()}>Logout</button>
+            <button class="logoutButton" type="button" onClick={() => auth.signOut()}>Logout</button>
             {!user.emailVerified && <button type="button" onClick={verifyEmail}>Verify email</button>}
         </div>
     } else {
@@ -166,7 +166,8 @@ function SignedInApp(props) {
         doc.update({
             sharedWith: firebase.firestore.FieldValue.arrayUnion(value),
         })
-    }
+        window.alert("Shared list with user associated with email: " + value + "\n To remove user, please re-create your list.");
+        }
 
     function handleUnshareTab(value, currentTab) {
         const doc = db.collection(tabs_collection).doc(currentTab.tabId);
@@ -174,6 +175,8 @@ function SignedInApp(props) {
         doc.update({
             sharedWith: newSharedWith,
         })
+        window.alert("Removed user associated with email: " + value +" from " + currentTab);
+
     }
 
     if (error) {

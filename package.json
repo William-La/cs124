@@ -19,10 +19,12 @@
     "firebase-admin": "^10.0.0",
     "node": "^16.10.0",
     "react": "^17.0.2",
+    "react-confetti": "^6.0.1",
     "react-dom": "^17.0.2",
     "react-firebase-hooks": "^3.0.4",
     "react-scripts": "^3.4.4",
-    "react-swipeable-views": "^0.14.0"
+    "react-swipeable-views": "^0.14.0",
+    "react-use-window-size": "^1.0.1"
   },
   "scripts": {
     "install gh-pages": "npm install gh-pages --save-dev",

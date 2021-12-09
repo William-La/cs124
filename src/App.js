@@ -116,7 +116,7 @@ function SignedInApp(props) {
     const [tab, setTab] = useState("0");
     const [view, setView] = useState('all');
     const [sort, setSort] = useState('date');
-    const query = db.collection(tabs_collection).where('owner', '==', props.user.uid);
+    const query = db.collection(tabs_collection).where('sharedWith', 'array-contains', props.user.email);
     const [value, loading, error] = useCollection(query);
 
     function handleTab(value) {
@@ -137,11 +137,16 @@ function SignedInApp(props) {
     }
 
     // Delete a tab and all of the tasks belong to it.
-    function handleDeleteTab(tabId) {
-        const tabDoc = db.collection(tabs_collection).doc(tabId);
+    function handleDeleteTab(currentTab, owner) {
+        if (props.user.uid != owner) {
+            handleUnshareTab(props.user.email, currentTab);
+            window.alert("Removed self from "+currentTab.title+"'s shared users");
+        } else {
+        handleTab("0");
+        const tabDoc = db.collection(tabs_collection).doc(currentTab.tabId);
         // Delete tab
         tabDoc.delete();
-        handleTab("0");
+        }
     }
 
     // Adds a new tab.
@@ -150,9 +155,27 @@ function SignedInApp(props) {
         db.collection(tabs_collection).doc(newId).set({
             tabId: newId,
             title: value,
-            owner: props.user.uid
+            owner: props.user.uid,
+            sharedWith: [props.user.email]
         })
     }
+
+    // Shares a tab.
+    function handleShareTab(value) {
+        const doc = db.collection(tabs_collection).doc(tab);
+        doc.update({
+            sharedWith: firebase.firestore.FieldValue.arrayUnion(value),
+        })
+    }
+
+    function handleUnshareTab(value, currentTab) {
+        const doc = db.collection(tabs_collection).doc(currentTab.tabId);
+        const newSharedWith = currentTab.sharedWith.filter(email => email != value);
+        doc.update({
+            sharedWith: newSharedWith,
+        })
+    }
+
     if (error) {
         console.log(error.message);
     }
@@ -164,9 +187,14 @@ function SignedInApp(props) {
                 tabs={tabs}
                 handleDeleteTab={handleDeleteTab}
                 handleNewTab={handleNewTab}
+                handleShareTab={handleShareTab}
+                user={props.user}
+                currentTab={tabs.filter(curTab => curTab.tabId === tab)[0]}
                 />}
         {loading && <h1>Loading</h1>}
-        {!loading && <List 
+        {tab==='0' ? 
+            <h1>Create or select a list!</h1> :
+            <List 
                 view={view}
                 sort={sort}
                 tab={tab}

@@ -51,7 +51,7 @@ function List(props) {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    const query = sortQuery().where('owner', '==', props.user.uid);
+    const query = sortQuery();
     const [value, loading, error] = useCollection(query);
 
     function sortQuery() {

@@ -25,7 +25,7 @@ export default function BasicModal(props) {
     const inputTask = useRef(null);
 
     function handleSubmit() {
-        props.onNewTab(input);
+        props.handleShareTab(input);
         setInput('');
         handleClose();
     }
@@ -36,9 +36,9 @@ export default function BasicModal(props) {
 
     return (
         <div>
-            <Button aria-label="Create new list" onClick={handleOpen}
+            <Button aria-label="Share list" onClick={handleOpen}
                     style={{color:"black"}}
-            >Create New List</Button>
+            >Share List</Button>
             <Modal
             open={open}
             onClose={handleClose}
@@ -47,21 +47,20 @@ export default function BasicModal(props) {
             >
             <Box sx={style}>
                 <Typography id="modal-modal-title" variant="h6" component="h2">
-                Create a New List
+                Share List
                 </Typography>
                 <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                Please provide a list name:
+                Please provide an email to share with:
                 </Typography>
                 <form onSubmit={handleSubmit}>
                 {/* Changes text depending on the actions (editing or deleting) */}
                 <input id="tabInputText" 
-                        type="text" 
-                        maxlength = "20"
+                        type="text"
                         placeholder={props.placeholder} 
                         ref={inputTask} 
                         value={input}
                         onChange={handleChange}/> <br />
-                <input id="submitButton" type="submit" value={"Create New List"} />
+                <input id="submitButton" type="submit" value={"Share List"} />
                 <input type="button" id="closeButton" onClick={handleClose} value="Cancel" />
                 </form>
             </Box>

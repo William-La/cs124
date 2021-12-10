@@ -10,12 +10,6 @@ import "./Tabs.css"
 import TabModal from "./TabModal"
 import ShareModal from "./ShareModal"
 
-function a11yProps(index) {
-  return {
-    id: `full-width-tab-${index}`,
-    'aria-controls': `full-width-tabpanel-${index}`,
-  };
-}
 
 export default function FullWidthTabs(props) {
   const theme = useTheme();
@@ -30,9 +24,9 @@ export default function FullWidthTabs(props) {
         {/*New Tab Button*/}
       <div class="headerUI">
         {<TabModal id="tabModal" onNewTab={props.handleNewTab}/>}
-        {props.tab != '0' && props.currentTab && props.user.uid === props.currentTab.owner && <ShareModal id="shareModal" handleShareTab={props.handleShareTab}/>}
+        {props.tab !== '0' && props.currentTab && props.user.uid === props.currentTab.owner && <ShareModal id="shareModal" handleShareTab={props.handleShareTab}/>}
         <div class="sharedWith">
-          {props.tab != '0' && props.currentTab ? 
+          {props.tab !== '0' && props.currentTab ? 
             <><p>Owner: {props.currentTab.sharedWith[0]}</p>
               {props.currentTab.sharedWith.length > 1 ? 
               <><p id="sharedText">Shared With: </p>{props.currentTab.sharedWith.slice(1, props.currentTab.sharedWith.length).map(email => <p>{email}</p>)}</> :
@@ -55,7 +49,7 @@ export default function FullWidthTabs(props) {
         >
           {props.tabs.map((tab) =>
             <Tab 
-
+                key={tab.tabId}
                 icon={
                   <button class="tab-delete-button" aria-label={"delete " + tab.title} type="submit" onKeyPress={() => props.handleDeleteTab(tab.tabId)}>
                   <Close role="button" id={tab.tabId} onClick={() => props.handleDeleteTab(tab, tab.owner)}/>
@@ -63,7 +57,6 @@ export default function FullWidthTabs(props) {
                 }
                 aria-label={tab.title}
                 role="button"
-                iconPosition="start"
                 label={tab.title}
                 id={`full-width-tab-`+tab.tabId}
                 aria-controls={`tab-`+tab.tabId}

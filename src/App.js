@@ -1,6 +1,7 @@
 import React from "react";
 import Header from './Header';
 import List from './List';
+import Login from './LoginModal';
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import { useState } from 'react';
 import firebase from "firebase/compat";
@@ -53,9 +54,6 @@ function App(props) {
     }
 }
 
-const FAKE_EMAIL = 'foo@bar.com';
-const FAKE_PASSWORD = '123456';
-
 function SignIn() {
     const [
         signInWithEmailAndPassword,
@@ -75,9 +73,9 @@ function SignIn() {
 
         {error && <p>"Error logging in: " {error.message}</p>}
         <div class="buttons">
-        <button class="signinButton bouncy" onClick={() =>
-            signInWithEmailAndPassword(FAKE_EMAIL, FAKE_PASSWORD)}>Login with test user Email/PW
-        </button>
+        {<Login login={signInWithEmailAndPassword}
+                text="Login With Email/PW"
+                buttonText="Login"/>}
         <button class="signinButton bouncy" style={{animationDelay: "0.07s"}} onClick={() =>
             auth.signInWithPopup(googleProvider)}>Login with Google
         </button>
@@ -101,16 +99,13 @@ function SignUp() {
     }
     return <div class="testUser">
         {error && <p>"Error signing up: " {error.message}</p>}
-        <button onClick={() =>
-            createUserWithEmailAndPassword(FAKE_EMAIL, FAKE_PASSWORD)}>
-            Create test user
-        </button>
-
+        {<Login login={createUserWithEmailAndPassword}
+                text="Sign Up With Email/PW"
+                buttonText="Sign Up"/>}
     </div>
 }
 
 
-const tasks_collection = "william-la-tasks";
 const tabs_collection = "william-la-tab";
 function SignedInApp(props) {
     const [tab, setTab] = useState("0");
@@ -138,9 +133,8 @@ function SignedInApp(props) {
 
     // Delete a tab and all of the tasks belong to it.
     function handleDeleteTab(currentTab, owner) {
-        if (props.user.uid != owner) {
+        if (props.user.uid !== owner) {
             handleUnshareTab(props.user.email, currentTab);
-            window.alert("Removed self from "+currentTab.title+"'s shared users");
         } else {
         handleTab("0");
         const tabDoc = db.collection(tabs_collection).doc(currentTab.tabId);
@@ -171,12 +165,13 @@ function SignedInApp(props) {
 
     function handleUnshareTab(value, currentTab) {
         const doc = db.collection(tabs_collection).doc(currentTab.tabId);
-        const newSharedWith = currentTab.sharedWith.filter(email => email != value);
+        const newSharedWith = currentTab.sharedWith.filter(email => email !== value);
+        console.log("newSharedWith: ");
+        console.log(newSharedWith);
         doc.update({
             sharedWith: newSharedWith,
         })
-        window.alert("Removed user associated with email: " + value +" from " + currentTab);
-
+        window.alert("Removed user associated with email: " + value +" from " + currentTab.title);
     }
 
     if (error) {

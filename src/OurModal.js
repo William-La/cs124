@@ -26,9 +26,6 @@ export default function OurModal(props) {
   const [priority, setPriority] = useState(props.priority);
   const inputTask = useRef(null);
 
-  function handleClose() {
-    props.handleClose();
-  }
   function handleSubmit() {
     props.handleAction(input, priority);
 

@@ -43,7 +43,7 @@ function App(props) {
             {user.displayName || user.email}
             <SignedInApp {...props} user={user}/>
             <button class="logoutButton" type="button" onClick={() => auth.signOut()}>Logout</button>
-            {!user.emailVerified && <button type="button" onClick={verifyEmail}>Verify email</button>}
+            {!user.emailVerified && <button class="verifyButton" type="button" onClick={verifyEmail}>Verify email</button>}
         </div>
     } else {
         return <>
@@ -72,14 +72,16 @@ function SignIn() {
             <h1 id="title"> Todo </h1>
 
         {error && <p>"Error logging in: " {error.message}</p>}
-        <div class="buttons">
+        <div class="loginButton bouncy" style={{animationDelay: "0.07s", marginTop:"200px", display:"inherit"}}>
         {<Login login={signInWithEmailAndPassword}
                 text="Login With Email/PW"
                 buttonText="Login"/>}
-        <button class="signinButton bouncy" style={{animationDelay: "0.07s"}} onClick={() =>
-            auth.signInWithPopup(googleProvider)}>Login with Google
-        </button>
         </div>
+
+        <button class="signinButton bouncy" style={{animationDelay: "0.14s", marginTop:"200px", display:"inherit"}} onClick={() =>
+            auth.signInWithPopup(googleProvider)}>LOGIN WITH GOOGLE
+        </button>
+      
         </div>
     </div>
 }
@@ -99,9 +101,11 @@ function SignUp() {
     }
     return <div class="testUser">
         {error && <p>"Error signing up: " {error.message}</p>}
+        <div class="signupButton bouncy" style={{animationDelay: "0.21s", marginTop:" -100px"}}>
         {<Login login={createUserWithEmailAndPassword}
                 text="Sign Up With Email/PW"
                 buttonText="Sign Up"/>}
+         </div>
     </div>
 }
 

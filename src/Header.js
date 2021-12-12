@@ -59,8 +59,8 @@ function Header(props) {
           </div>
             <div class="view">{DropDown("View", "all", "completed", "uncompleted", props.view)}</div>
             <div class="sort">{DropDown("Sort", "date", "title", "priority", props.sort)}</div>
+
             <Tabs {...props}/>
-            {/* <LabTabs {...props}/> */}
          </div>
     </div>
 }

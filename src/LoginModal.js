@@ -21,24 +21,30 @@ export default function BasicModal(props) {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    const [input, setInput] = useState("");
-    const inputTask = useRef(null);
+    const [email, setEmail] = useState("");
+    const emailTask = useRef(null);
+    const [password, setPassword] = useState("");
+    const passTask = useRef(null);
 
     function handleSubmit() {
-        props.onNewTab(input);
-        setInput('');
+        props.login(email, password);
+        setEmail('');
+        setPassword('');
         handleClose();
     }
   
-    function handleChange(e) {
-        setInput(e.target.value);
+    function handleEmailChange(e) {
+        setEmail(e.target.value);
+    }
+    function handlePasswordChange(e) {
+        setPassword(e.target.value);
     }
 
     return (
         <div>
-            <Button aria-label="Create new list" onClick={handleOpen}
+            <Button aria-label="Sign Up" onClick={handleOpen}
                     style={{color:"black"}}
-            >Create New List</Button>
+            >{props.text}</Button>
             <Modal
             open={open}
             onClose={handleClose}
@@ -47,21 +53,29 @@ export default function BasicModal(props) {
             >
             <Box sx={style}>
                 <Typography id="modal-modal-title" variant="h6" component="h2">
-                Create a New List
+                {props.text}
                 </Typography>
                 <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                Please provide a list name:
+                Email: 
                 </Typography>
                 <form onSubmit={handleSubmit}>
                 {/* Changes text depending on the actions (editing or deleting) */}
-                <input id="tabInputText" 
-                        type="text" 
-                        maxlength = "20"
+                <input id="emailText" 
+                        type="text"
                         placeholder={props.placeholder} 
-                        ref={inputTask} 
-                        value={input}
-                        onChange={handleChange}/> <br />
-                <input id="submitButton" type="submit" value={"Create New List"} />
+                        ref={emailTask} 
+                        value={email}
+                        onChange={handleEmailChange}/> <br />
+                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                Password: 
+                </Typography>
+                <input id="passwordText" 
+                        type="password"
+                        placeholder={props.placeholder} 
+                        ref={passTask} 
+                        value={password}
+                        onChange={handlePasswordChange}/> <br />
+                <input id="submitButton" type="submit" value={props.buttonText} />
                 <input type="button" id="closeButton" onClick={handleClose} value="Cancel" />
                 </form>
             </Box>

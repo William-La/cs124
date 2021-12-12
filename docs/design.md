@@ -1,47 +1,106 @@
-# CS 124 Lab 3
+# CS 124 Lab 5
 Devika Mehr and William La
 
 CS124 Section 1
 
 [Link to deployed app](https://william-la.github.io/cs124/)
 
-Nov. 22th 2021
+Dec. 11th 2021 (Used 48-hour extension)
 
-Video Links
------------
-[Using your application entirely from the keyboard](https://youtu.be/o8aepl91tLg)
+Firestore Database Rules
+------------------------
+```
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth.uid != null && request.auth.uid != null;
+    }
+    
+    function isDocOwner() {
+      return request.auth.uid == resource.data.owner;
+    }
+    
+    function updatedDocHasCorrectOwner() {
+      return request.auth.uid == request.resource.data.owner;
+    }
+    
+    function updatedDocHasSameOwner() {
+      return resource.data.owner == request.resource.data.owner;
+    }
+    
+    function updatedDocHasSameSharing() {
+      return resource.data.sharedWith == request.resource.data.sharedWith;
+    }
+    
+    function isSharedWithMe() {
+      return request.auth.token.email in resource.data.sharedWith;
+    }
+    
+    function isParentShared(tab) {
+      return request.auth.token.email in get(/databases/$(database)/documents/william-la-tab/$(tab)).data.sharedWith;
+    }
 
-[Using your application using a screenreader](https://youtu.be/hSNqcqD_3oA)
+    match /william-la-tab/{tab} {
+      allow read: if signedIn() && isSharedWithMe();
+      allow create: if signedIn() && updatedDocHasCorrectOwner();
+      allow update: if signedIn() && isSharedWithMe();
+      allow delete: if signedIn() && isDocOwner();
+    }
+    
+    match /william-la-tab/{tab}/william-la-tasks/{task} {
+      allow read: if signedIn() && isParentShared(tab);
+      allow create: if signedIn() && isParentShared(tab);
+      allow update: if signedIn() && isParentShared(tab);
+      allow delete: if signedIn() && isParentShared(tab);
+    }
+    
+  }
+}
+```
 
 Design Decisions, Rationale, and Alternative Designs Considered
 ------------------------------
+### Authentication and Sharing
+For this lab, we had to enable authentication and also allow list sharing amongst other users. We decided to only share lists based on emails, which was based off of the idea from our in-class authentication lab. Firstly, we decided to get started by adding login and account creation buttons for a user to see while “logged out” of our application. Once logged in, we wanted to display their username uptop and render our usual application with a log out button on the bottom. We kept all of our internal design the same as our login screen to keep cohesiveness! We also added a small animation to our login and sign up buttons to attract the user's attention to these important functions. 
 
-### Accessibility
+#### Log In and Sign Up Buttons
+![Login Buttons](./img/lab5/task1+2start.png)
+
+### List Sharing UI
+While sharing and creating lists, we decided to display who is the owner of the list and who the list is shared with. This was based on our confusion while developing. There would be many times where we would share a list with an alternative email, but while switching back and forth, we’d forget who the owner and who the shared user was and run into bugs. We realized if we were having issues as developers differentiating that, then our users would too. Therefore, we added this display on our header to signal to users who owns what. We also added Window Alerts to confirm and iterate instructions while sharing and deleting lists so a user knows how to remove an unwanted user from their list and/or that they’ve shared a list with a specific user.
+
+#### Sharing Window Alert
+![Sharing Alert](./img/lab5/task4middle2.png)
+
+
+We also mimicked our sharing to Google Docs, where you can share documents with other people as long as you have sharing permission. But, we wanted to ensure that users knew who had permissions on their lists, which was another driving factor for the display at the header too.
+
+Finally, we also added some fun confetti when you have completed items on your list, because we all deserve a little bit of happiness during this stressful time. 
+
+### Relevant Design Decisions, Alternative Designs, and Rationale From Previous Labs
+#### Relevant Design Decisions, Alternative Designs, and Rationale From Lab 4
+##### Accessibility
 For this lab, we were tasked with not only adding a multiple list feature, but also to implement responsive and accessible design. Therefore, we first started our new design with the thought of accessibility in mind before proceeding. We ensured that all of our implemented colors and themes passed accessibility contrast tests, which they did!
 
 We then used the Mac screen reader to see which parts of our design were inaccessible and decided to tackle those first. We noticed that we implemented a lot of our original design with divs, which cannot be read by screen readers. To mitigate this, we added aria-role labels and added button tags where we implemented div buttons. While the accessibility changes are not noticeable visually, they are ready to go for anyone who might need to use a screen reader. 
 
-### Responsive Design
+##### Responsive Design
 To tackle the responsive design, we first tried different chrome screen sizes (laptop, phone, tablet) and pinpointed where exactly our components did not resize or overflowed. This exercise helped us learn more about max/min widths and media queries. We decided to make our elements, such as the header, smaller when our screens were in landscape laptop mode as we wanted to be able to see more tasks in this view. We broke our responsive design into three major sections: laptop, tablet, and phone. Each of these three sections have different resizings for their respective widths and heights. 
 
-### Multiple Lists
+##### Multiple Lists
 Finally, we decided to tackle adding lists to our application. We decided to continue to use the Material UI component guide to create a responsive tab bar. Using Material UI again ensures that our components are following similar style guides and also our application looks more put together. 
 
 At first, we decided to only implement three lists for a user. 
 
-#### Old List Bar
+##### Old List Bar
 ![Old Lists](./img/lab4/oldLists.png)
 
 This was partly due to listening to our user tester who had given us great feedback in the past. They mentioned that limiting the number of lists might ensure that users don’t forget about tasks or create too many unnecessary lists as well. When we implemented this, we first believed that this was the most optimal solution based on one user tester. But, we still had doubts if implementing three lists was too limiting so we consulted Prof. Rhodes to double check that our user tester was conveying a legitimate concern. Prof. Rhodes confirmed our doubt that three lists were too little and we decided to implement multiple list creation and customization. While our user tester has great insights with psychology, they also are just one user with one specific perspective out of many. 
 
-### New List Bar
+##### New List Bar
 ![New Lists](./img/lab4/newLists.jpg)
 
-
-### Home List
-We also decided to have a "Home" tab that can not be deleted, as can be seen in the image above. One of our users said that although they appreciated different lists for organization, they also like the option of quickly writing something down without having to worry about organizing. Also, they raised the concern of having "one-off" tasks that don't necessarily belong to an existing, named list but also did not warrant an entirely new list being created for it. Thus, we felt like a "Home" tab that is always there and not necessarily organized was a good design decision.
-
-### Relevant Design Decisions, Alternative Designs, and Rationale From Previous Labs
 #### Relevant Design Decisions, Alternative Designs, and Rationale From Lab 3
 For this lab, we added two new additions to our UI. First, we added a new dropdown menu that allows a user to select sorting by Date, Name, and Priority. We decided that ascending Date and Name in addition to descending Priority was the most intuitive display of the different sorting options.
 
@@ -109,6 +168,8 @@ The first design had the dropdown icon rotate and shift to the left while the tw
 The second design features a menu that drops down after the icon was clicked featuring the two menu options. We ultimately decided to go with this second design as it was simpler and more accurately displayed the functionality expected from a dropdown icon.
 
 ### Alternative 
+As mentioned above, we weren’t going to add the owner of the list nor the shared list as we didn’t think it’d be that necessary. But, due to confusion while we were coding, we decided it was extremely important. Our users' testers also reiterated this when they saw our mid-production version and also had the same confusion.
+
 #### Three Lists
 Mentioned above, we initially considered only providing three possible lists but decided against it. Users now have the ability to add and delete lists without a cap.
 
@@ -138,13 +199,13 @@ We initially thought that this select all feature could help users select a scre
 
 User Testing
 ------------
-As mentioned in the previous section, we did consult one friend who has had experience in psychology to help us test. While her insights on why creating multiple lists might cause a lot of anxiety, we could definitely implement a later version with the feature of a user stating the max number of lists they’d like to create. But, as that is not in the scope of the overall lab (and we’d like to follow our Professor’s instructions), we implemented our lists to be customizable. 
+This time, we didn’t spend too much time coding, but we did try to squeeze in user testing between our pair programming sessions. This was incredibly helpful! One user mentioned that they liked it when important buttons had a different contrast in applications as it draws their attention, so we added green login/logout buttons to accommodate this. Based on this, we went the extra mile to add animation which was reaffirmed as good by our user tester. Similarly, we displayed the application when we weren’t sharing owners and shared users, which we got strong feedback to please display that on our application. This makes sense as you’d like to know if one of the shared users had given the list to someone else or if you incorrectly sent in the wrong email. The user also suggested that we added a confirmation to who we added, so we added a window alert confirming that the list had been shared with a specific email and how to also remove them. 
 
-Also mentioned above, our addition of a "Home" list was also sparked by user feedback. The user showed interest in being able to quickly create a task without having to consider organization (in the event that they are busy or on the run). The creation of the "Home" list also resolves the issue of having "one-off" tasks that do not belong to any other lists but are not important enough to warrant another list being created for it.
-
-Our user tester helped us a lot with the responsive design process as well. Through each iteration of implementing media queries, they would point out any flaws they might notice with the adjustment of the screen. This was especially helpful to find any hidden flaws and overlooked issues. Similarly, we had one user use a screen reader to edit tasks and walk through the website. This was great to have as both of us know what the expected output and keyboard presses should be. This brought to our attention that a lot of our HTML tags were missing labels as well.
+I also showed the users the confetti which the response was “cute”. This seems to be extremely good user feedback. 
 
 #### User Testing From Previous Labs
+Our user tester helped us a lot with the responsive design process. Through each iteration of implementing media queries, they would point out any flaws they might notice with the adjustment of the screen. This was especially helpful to find any hidden flaws and overlooked issues. Similarly, we had one user use a screen reader to edit tasks and walk through the website. This was great to have as both of us know what the expected output and keyboard presses should be. This brought to our attention that a lot of our HTML tags were missing labels as well.
+
 We did ask someone who has had experience with Psychology to look over our application and she gave us great feedback regarding the priority colors. It was great hearing her thoughts on our application and she didn’t have much more feedback other than the fact that she enjoyed that we continued to use dropdowns and that she felt like the application was a bit slow to update. We couldn’t really fix the “quickness” of the database due to outside constraints, but she at least appreciated seeing the “Loading” screen when things were refreshing. 
 
 We had one user go through the application and she gave great feedback on two key parts. She mentioned that removing the positive empty list text was a good idea as it can create feelings to “rush” through tasks to receive a message. When we told her that we used to have a message that said “Oh no! No more tasks to do” she mentioned that any text could make a user more anxious about their productivity. Therefore, we decided to remove the text altogether.
@@ -167,6 +228,74 @@ We're thankful that our user pointed out this bug and were able to make the appr
 Final Design
 ------------
 ## New Aspects in the Final Design
+### Signing Up
+Users are able to sign up for an account using an email and password. Note: Users who login through Google do not need to sign up separately.
+
+Start
+
+![Sign Up Start](./img/lab5/task1+2start.png)
+
+Middle - After the Sign Up With Email/PW button is pressed
+
+![Sign Up Middle](./img/lab5/task1middle.png)
+
+End - Filling out fields and submitting
+
+![Sign Up End](./img/lab5/task1middle2.png)
+
+### Logging In
+Users can log in using either email and password (if they've previously created an account) or through Google.
+
+Start
+
+![Login Start](./img/lab5/task1+2start.png)
+
+Email/PW Middle - After the Login With Email/PW button is pressed
+
+![Login Middle](./img/lab5/task2middle.png)
+
+Google Middle - After the Login With Google button is pressed
+
+![Login Middle2](./img/lab5/task5middle.png)
+
+Email/PW End - Signing in and pressing the verify email button
+
+![Login End](./img/lab5/task3end.png)
+
+Google End - Signing in, no email verification required
+
+![Login End2](./img/lab5/task5middle2.png)
+### Sharing Lists
+Users are able to sign up for an account using an email and password. Note: Users who login through Google do not need to sign up separately.
+
+Start - Pressing the Shared List button
+
+![Sign Up Start](./img/lab5/task4start.png)
+
+Middle - Providing an email to share with
+
+![Sign Up Middle](./img/lab5/task4middle.png)
+
+Middle 2 - Pressing the Share List confirmation button
+
+![Sign Up End](./img/lab5/task4middle2.png)
+
+End - List is now shared
+
+![Sign Up Start](./img/lab5/task4end.png)
+
+### Confetti.
+Confetti.
+
+Start - No Confetti.
+
+![No Confetti](./img/lab5/task5start.png)
+
+End - Confetti.
+
+![Confetti](./img/lab5/task6start.png)
+
+## Final Design Flow From Previous Labs
 ### Creating a New List
 Users are able to create new list categories using the UI in the app header.
 Start
@@ -192,7 +321,6 @@ End - After the "x" button is pressed on the School list
 
 ![Delete List End](./img/lab4/task5end.png)
 
-## Final Design Flow From Previous Labs
 ### Task 1 - In an empty list, create an item.
 Users are presented with an empty list and are able to press the plus button in the lower right of the screen to begin creating a new todo task. When users press the button, a task creation modal appears where they can enter a task title and priority level. They submit their task by pressing the "Create Task" button. Once they submit their task, it is viewable on the main todo page and is colored according to the priority level.
 
@@ -304,11 +432,11 @@ Sorting by Task Priority. Higher priority tasks appear first.
 
 Challenges
 ----------
-In all honesty, this was one of the most challenging labs for our group. Not only were we swamped with Clinic and other class projects, but also we had to continuously update and adapt our website due to feedback. Similarly, our projects were not built with the idea that a laptop or tablet user might use it, so a lot of the original CSS had to be modified and debugged with responsive implementation. While media queries might seem simple, there were a magnitude of issues that arose as we started to implement it. Some included dropdowns losing their margins, the dropdown arrows changing size as the screen widened, and text overflowing off boxes. We tried our best to fix these issues, but wish we had learned accessibility earlier on to incorporate that in our original design. 
-
-We also faced the challenge of changing our list implementation a couple of days before the due date. Not only did this add pressure, but also cause us to redo parts of our code we hadn’t touched in a couple of weeks. This added new react errors and lots of debugging to understand why our collections were broken. Similarly, as we had to edit how our tasks were displayed, this bugged out our sorting and view implementations. 
+One challenge we faced was debugging the authentication. While it may seem easy to just login and out of different accounts, we would lose track of which email had which list or what rules we had enforced. Majority of the time, our bugs stemmed from not updating the rules in the Firebase console. We also had a hard time creating a subcollection within a collection, but, with the help of StackOverflow and trying different methods on the Firebase documentation, we were able to overcome it!
 
 ### Challenges from previous labs
+While media queries might seem simple, there were a magnitude of issues that arose as we started to implement it. Some included dropdowns losing their margins, the dropdown arrows changing size as the screen widened, and text overflowing off boxes. We tried our best to fix these issues, but wish we had learned accessibility earlier on to incorporate that in our original design.
+
 We struggled a lot with filtering our tasks with the addition to the database. Originally, we used a “useEffect” to help filter our todos and update our view when doing so. But, with Firebase, this would cause our application to re-render too many times and crash. We spent a lot of time trying to debug and trying different methods of filtering until we combined our previous method with the database and used a map function to transpose the data onto the view. While the code might seem simple, this took us quite a while to fix and once it finally worked, we were quite happy!
 
 One challenge we faced was definitely debugging react. While in other languages you can get exact error messages with syntactical rules, in React, sometimes the error messages are so unique to your project that the internet has no help. But, this required us to be resourceful with debugging and also trying to step through our code logically. 
@@ -317,12 +445,15 @@ Another challenge we faced was figuring out the MaterialUI CSS versus our CSS as
 
 Parts of the Design We're Most Proud of
 ---------------------------------------
-We are proud of the lists as we had the quickest turnaround time to implement, debug, and perfect for the due date! While the other parts of our newer design are wonderful, we enjoy creating and deleting our new lists as this enhances our project to another level. We also enjoy that our application can be used with a screen reader and is tab-able as well!
+We are proud that our database seems to work well and updates! It seemed incredibly daunting at first, but seeing our working product affirms that we are able to do anything if we put our minds to it. I also love the bouncy buttons and the confetti :) 
+
 
 ### Proud designs from previous labs
+We enjoy creating and deleting our new lists as this enhances our project to another level. We also enjoy that our application can be used with a screen reader and is tab-able as well!
+
 We really are proud of the new sorting system we put in place as it seemed quite challenging at first. Thankfully, the videos from the Firebase days did help us sort our data, but seeing it work in real-time with our functioning tasks was a great feeling!
 We’re also incredibly proud of the new colors we added to our application as we feel like it fits our “aesthetic” and that we were able to finally fix our filtering issue before the due date too :) 
 
-One task that seemed incredibly daunting was our “filter” task which had to check the status of a task and only display the user-selected filter on the screen. At first, we suspected that this would take quite a large portion of our time together so we decided to leave it off till the end. When we were able to get our filter to work, we felt incredibly proud and also more confident in our debugging skills. We're also very proud of the design decisions we made when implementing this filter option, as we believe the "View" bar and dropdown menu are very user friendly approaches to filtering. 
+One task that seemed incredibly daunting was our “filter” task which had to check the status of a task and only display the user-selected filter on the screen. At first, we suspected that this would take quite a large portion of our time together so we decided to leave it off, till the end. When we were able to get our filter to work, we felt incredibly proud and also more confident in our debugging skills. We're also very proud of the design decisions we made when implementing this filter option, as we believe the "View" bar and dropdown menu are very user friendly approaches to filtering. 
 
 Finally, we’re extremely proud of everything we made! It seemed daunting at first to make a WHOLE application in React, but, after many hours of debugging, celebration, and google searching we are so proud of it and think it can definitely evolve to something even better too! 

@@ -230,6 +230,7 @@ Final Design
 ## New Aspects in the Final Design
 ### Signing Up
 Users are able to sign up for an account using an email and password. Note: Users who login through Google do not need to sign up separately.
+
 Start
 
 ![Sign Up Start](./img/lab5/task1+2start.png)
@@ -244,6 +245,7 @@ End - Filling out fields and submitting
 
 ### Logging In
 Users can log in using either email and password (if they've previously created an account) or through Google.
+
 Start
 
 ![Login Start](./img/lab5/task1+2start.png)
@@ -265,6 +267,7 @@ Google End - Signing in, no email verification required
 ![Login End2](./img/lab5/task5middle2.png)
 ### Sharing Lists
 Users are able to sign up for an account using an email and password. Note: Users who login through Google do not need to sign up separately.
+
 Start - Pressing the Shared List button
 
 ![Sign Up Start](./img/lab5/task4start.png)
@@ -280,6 +283,17 @@ Middle 2 - Pressing the Share List confirmation button
 End - List is now shared
 
 ![Sign Up Start](./img/lab5/task4end.png)
+
+### Confetti.
+Confetti.
+
+Start - No Confetti.
+
+![No Confetti](./img/lab5/task5start.png)
+
+End - Confetti.
+
+![Confetti](./img/lab5/task6start.png)
 
 ## Final Design Flow From Previous Labs
 ### Creating a New List

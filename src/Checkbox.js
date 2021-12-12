@@ -17,9 +17,7 @@ function Checkbox(props) {
         
         {/* Renders a checkmark if the task is completed or not. */}
         <button aria-pressed={props.completed} aria-label={checkComplete(props.completed)} role="button" class="todo-checkbox"  onClick={props.onCompleted } style={{backgroundColor: props.priorityColor}}>
-            
-
-            {props.completed ?<div class="completed">  <Confetti /> <CheckIcon id="CheckIcon"/></div> : <div class="uncompleted"></div>}
+            {props.completed ? <div class="completed">  <Confetti /> <CheckIcon id="CheckIcon"/></div> : <div class="uncompleted"></div>}
         </button>
         
 
